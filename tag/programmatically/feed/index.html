@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Programmatically &#8211; Woffice</title>
+	<atom:link href="https://woffice.io/tag/programmatically/feed/" rel="self" type="application/rss+xml" />
+	<link>https://woffice.io</link>
+	<description>Best Intranet / Extranet Wordpress Theme</description>
+	<lastBuildDate>Fri, 26 Mar 2021 04:25:06 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	
+	<item>
+		<title>How to create a WordPress plugin to login and register using Facebook API</title>
+		<link>https://woffice.io/create-plugin-to-login-register-using-facebook/</link>
+					<comments>https://woffice.io/create-plugin-to-login-register-using-facebook/#comments</comments>
+		
+		<dc:creator><![CDATA[woadmin]]></dc:creator>
+		<pubDate>Mon, 20 Feb 2017 08:13:21 +0000</pubDate>
+				<category><![CDATA[WordPress tutorials]]></category>
+		<category><![CDATA[Api]]></category>
+		<category><![CDATA[Programmatically]]></category>
+		<guid isPermaLink="false">http://alka-web.com/alka-web-com/?p=362</guid>
+
+					<description><![CDATA[In this tutorial, we will see how to write a simple WordPress plugin in order to Login and Register your users right on your WordPress site using the Facebook API. It is very easy to do and we will go through [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In this tutorial, we will see how to write a simple WordPress plugin in order to <strong>Login and Register</strong> your users right on your WordPress site using the <strong>Facebook API</strong>. It is very easy to do and we will go through each step one by one.<br />
+You need to have basics in <em>PHP, WordPress development, CSS and HTML</em>. But nothing tricky here.<br />
+You can find the complete plugin on Github: <a href="https://github.com/2Fwebd/alka-facebook" target="_blank" rel="noopener noreferrer">Plugin repository</a><br />
+Note that this is a first part, as you will see at the end, there are many things that can be improved.<br />
+<strong>Update: <a href="https://alka-web.com/blog/how-to-create-a-…ebook-api-part-2/" target="_blank" rel="noopener noreferrer">You can find part 2 here</a>!</strong><br />
+The authentication flow from Facebook is quite simple:</p>
+<ul>
+<li>We use the Facebook SDK to generate a login link to redirects toward Facebook&#8217;s server.</li>
+<li>If everything is good and the user agrees to let our application get some details. We are redirected back to our WordPress site.</li>
+<li>During the redirection, Facebook gives us a temporary &#8220;Access Token&#8221;.</li>
+<li>We use this token to ask the Facebook API to get the user&#8217;s details: ID, Name, Email&#8230;</li>
+<li>We handle the data in WordPress by either connecting the user if there was a previous connection or by creating a new account.</li>
+</ul>
+<h2>What is the goal?</h2>
+<p>We want to provide our users a very simple way to login and register to WordPress. Without email, username or password to enter in order to log in. <em>Just a single button to click</em>.<br />
+The easiest way will be to create a new <strong>shortcode</strong> which will display a Login/Register button and any error that should be displayed. So you can use it in any page / post / widget  or theme template using the <a href="https://developer.wordpress.org/reference/functions/do_shortcode/" target="_blank" rel="noopener noreferrer">do_sho</a><a href="https://developer.wordpress.org/reference/functions/do_shortcode/" target="_blank" rel="noopener noreferrer">rtcode</a> function.<br />
+The shortcode <strong>will display nothing</strong> if the user is currently logged in. You might want to change that behavior.<br />
+We will use a plugin to wrap our code so it can work in any site. This plugin will be using the Facebook SDK and an object oriented coding style.<br />
+Feel free to change all the &#8220;alka&#8221; word  with your organization&#8217;s name.</p>
+<h2>Step 1: Building our plugin and importing the Facebook PHP SDK</h2>
+<p>First, we need to create a new plugin so our code is run by WordPress. Create a new directory &#8220;<strong>alka-facebook</strong>&#8221; (in wp-content/plugins/) that will hold all our files. Then, let&#8217;s get started! Create a new <strong>alka-facebook.php</strong> file:</p>
+<pre>&lt;?php
+/**
+ * Plugin Name:       Alka Facebook
+ * Description:       Login and Register your users using Facebook's API
+ * Version:           1.0.0
+ * Author:            Alkaweb
+ * Author URI:        http://alka-web.com/alka-web-com
+ * Text Domain:       alkaweb
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * GitHub Plugin URI: https://github.com/2Fwebd/alka-facebook
+ */
+class AlkaFacebook{
+    /**
+     * AlkaFacebook constructor.
+     */
+    public function __construct()
+    {
+    }
+}
+/*
+ * Starts our plugins, easy!
+ */
+new AlkaFacebook();</pre>
+<p>You can now enable the plugin in Plugins &gt; <strong>Alka Facebook</strong> &gt; Activate. All our code will now be executed by WordPress, which is good.<br />
+Then, we can now import the <a href="https://developers.facebook.com/docs/reference/php/" target="_blank" rel="noopener noreferrer"><strong>Facebook PHP Sdk</strong></a> which will help us to make our calls to the Facebook API using PHP.<br />
+There are several ways to import it, the easiest one in WordPress is to download the SDK, rename the folder as facebook-sdk and move it to our plugin&#8217;s directory:<br />
+<img loading="lazy" class="alignnone wp-image-367 size-full" title="Directory structure of the plugin" src="https://alka-web.com/wp/wp-content/uploads/2017/02/facebook-sdk.png" width="2050" height="874" /><br />
+Now, we need to call the Facebook Sdk files required by the a<em>uthentication</em> actions that will be done within our plugin.<br />
+Just add the following to the top of the plugin&#8217;s file, right after the plugin header:</p>
+<pre>/*
+ * Import the Facebook SDK and load all the classes
+ */
+include (plugin_dir_path( __FILE__ ) . 'facebook-sdk/autoload.php');
+/*
+ * Classes required to call the Facebook API
+ * They will be used by our class
+ */
+use Facebook\Facebook;
+use Facebook\Exceptions\FacebookSDKException;
+use Facebook\Exceptions\FacebookResponseException;</pre>
+<h2>Step 2: creating our Facebook Application</h2>
+<p>Secondly, in order to make API calls to the Facebook API, we obviously need to get some access. So Facebook knows who is making the calls and requesting the user details.<br />
+You can do that by going on the Facebook Apps page: <a href="https://developers.facebook.com/apps" target="_blank" rel="noopener noreferrer">https://developers.facebook.com/apps</a>.</p>
+<ul>
+<li>Click the &#8220;<strong>Add a new App</strong>&#8221; button</li>
+<li>Set up the name and create your APP</li>
+<li>Enable the Products &gt; <strong>Facebook Login </strong></li>
+<li>Add your Callback URL, which is <strong>http://yoursite.com/wp-admin/admin-ajax.php?action=alka_facebook </strong>you definitely need to change <strong>yoursite.com </strong>with your site&#8217;s URL.</li>
+</ul>
+<p><img loading="lazy" class="alignnone wp-image-370 size-full" title="Facebook API settings" src="https://alka-web.com/wp/wp-content/uploads/2017/02/Test_Eonet_-_Facebook_Login_-_Facebook_for_Developers.jpg" width="2630" height="988" /></p>
+<ul>
+<li>Go to the Settings to get your <strong>App Id</strong> and <strong>App Secret </strong></li>
+</ul>
+<p>We can now save them in our Class safely:</p>
+<pre>class AlkaFacebook{
+    /**
+     * Facebook APP ID
+     *
+     * @var string
+     */
+    private $app_id = 'xxxxxxxxxxxx';
+    /**
+     * Facebook APP Secret
+     *
+     * @var string
+     */
+    private $app_secret = 'yyyyyyyyyyyyy';
+    /**
+     * Callback URL used by the API
+     *
+     * @var string
+     */
+    private $callback_url = 'http://yoursite.com/wp-admin/admin-ajax.php?action=alka_facebook';</pre>
+<pre></pre>
+<p>We are now ready to use Facebook API safely from our site.</p>
+<h2>Step 3: Creating our Shortcode</h2>
+<p>Thirdly, we will create a very simple <a href="https://codex.wordpress.org/Shortcode_API" target="_blank" rel="noopener noreferrer">shortcode</a> to display our button, you can add options to this shortcode to go further we won&#8217;t do it in this tutorial though.<br />
+The shortcode is added using the &#8220;<strong>add_shortcode</strong>&#8221; WordPress function in our constructor and calls a method &#8220;<strong>renderShortcode</strong>&#8220;, which has a pretty good name according to how we will use it.</p>
+<pre>/**
+ * AlkaFacebook constructor.
+ */
+public function __construct()
+{
+    // We register our shortcode
+    add_shortcode( 'alka_facebook', array($this, 'renderShortcode') );
+}
+/**
+ * Render the shortcode [alka_facebook/]
+ *
+ * It displays our Login / Register button
+ */
+public function renderShortcode() {
+    // No need for the button is the user is already logged
+    if(is_user_logged_in())
+        return;
+    // Different labels according to whether the user is allowed to register or not
+    if (get_option( 'users_can_register' )) {
+        $button_label = __('Login or Register with Facebook', 'alkaweb');
+    } else {
+        $button_label = __('Login with Facebook', 'alkaweb');
+    }
+    // Button markup
+    $html = '&lt;div id="alka-facebook-wrapper"&gt;';
+    $html .= '&lt;a href="#" id="alka-facebook-button"&gt;'.$button_label.'&lt;/a&gt;';
+    $html .= '&lt;/div&gt;';
+    // Write it down
+    return $html;
+}</pre>
+<p>You can now use <strong>[alka_facebook /]</strong> in your editor in any page and save. For testing purpose, <strong>you can now log out.</strong></p>
+<h2>Step4: Connecting to the API</h2>
+<p>Next, we will now create a connection between our plugin and the Facebook API using our Facebook App&#8217;s details. In order to achieve this, we will create a new method to initialize the connection as it will be called several times, we return a Facebook instance:</p>
+<pre>/**
+ * Init the API Connection
+ *
+ * @return Facebook
+ */
+private function initApi() {
+    $facebook = new Facebook([
+        'app_id' =&gt; $this-&gt;app_id,
+        'app_secret' =&gt; $this-&gt;app_secret,
+        'default_graph_version' =&gt; 'v2.2',
+        'persistent_data_handler' =&gt; 'session'
+    ]);
+    return $facebook;
+}</pre>
+<p>Thus, we can now use the SDK to get a login/register URL that will be used whenever the user clicks our button. Note that we use the PHP session to pass the data through all the methods and Facebook&#8217;s authentication steps:</p>
+<pre>/**
+ * Login URL to Facebook API
+ *
+ * @return string
+ */
+private function getLoginUrl() {
+    if(!session_id()) {
+        session_start();
+    }
+    $fb = $this-&gt;initApi();
+    $helper = $fb-&gt;getRedirectLoginHelper();
+    // Optional permissions
+    $permissions = ['email'];
+    $url = $helper-&gt;getLoginUrl($this-&gt;callback_url, $permissions);
+    return esc_url($url);
+}</pre>
+<p>So, we can now use this URL in our button (renderShortcode) method:</p>
+<pre>$html .= '&lt;a href="'.$this-&gt;getLoginUrl().'" class="btn" id="alka-facebook-button"&gt;'.$button_label.'&lt;/a&gt;';</pre>
+<p>Our Facebook signing button now redirects us to Facebook, we are also redirect back to our callback URL. Yi hay!</p>
+<h2>Step 5: The callback</h2>
+<p>Lastly, the Callback is the code run by our plugin whenever an user is done with the Facebook dialog. He is redirected back to our site. For this matter, we created a new URL (already used earlier) http://yoursite.com/wp-admin/admin-ajax.php?action=alka_facebook which is basically a way to run our code with our own URL in WordPress. This is using the AJAX way, it would be better to use the REST API later though.</p>
+<pre>/**
+ * AlkaFacebook constructor.
+ */
+public function __construct()
+{
+    // We register our shortcode
+    add_shortcode( 'alka_facebook', array($this, 'renderShortcode') );
+    // Callback URL
+    add_action( 'wp_ajax_alka_facebook', array($this, 'apiCallback'));
+    add_action( 'wp_ajax_nopriv_alka_facebook', array($this, 'apiCallback'));
+}</pre>
+<p>And we need to create our callback&#8217;s method. This callback decides whether the user must be logged in or registered. This is where all the magic happens!<br />
+We will introduce a bunch of new stuff first here:</p>
+<ul>
+<li>A new &#8220;<strong>alka_facebook_message</strong>&#8221; <em>session variable</em> that will handle any error or message that must be displayed back to the user.</li>
+<li>A new &#8220;<strong>alka_facebook_url</strong>&#8221; <em>session variable</em> to redirect our user properly after the callback. It saves the page&#8217;s URL (where the shortcode is located)</li>
+<li>A new class property: <strong>$access_token</strong> to use the access token from the Facebook API</li>
+<li>A new class property: <strong>$redirect_url</strong> to use our alka_facebook_url within our class</li>
+<li>A  new class property: <strong>$facebook_details</strong> to use the user data returned by the Facebook URL.</li>
+</ul>
+<p>Moreover, we use class properties so we can split our code in several methods and never pass anything as an argument but rather as a class property. Which is cleaner.<br />
+In order that we now add our new properties:</p>
+<pre>/**
+ * Access token from Facebook
+ *
+ * @var string
+ */
+private $access_token;
+/**
+ * Where we redirect our user after the process
+ *
+ * @var string
+ */
+private $redirect_url;
+/**
+ * User details from the API
+ */
+private $facebook_details;</pre>
+<p>We can also <strong>update</strong> our shortcode render method to pass the URL and display any message that would be returned by the callback through the <strong>$_SESSION</strong>:</p>
+<pre>/**
+ * Render the shortcode [alka_facebook/]
+ *
+ * It displays our Login / Register button
+ */
+public function renderShortcode() {
+    // Start the session
+    if(!session_id()) {
+        session_start();
+    }
+    // No need for the button is the user is already logged
+    if(is_user_logged_in())
+        return;
+    // We save the URL for the redirection:
+    if(!isset($_SESSION['alka_facebook_url']))
+        $_SESSION['alka_facebook_url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    // Different labels according to whether the user is allowed to register or not
+    if (get_option( 'users_can_register' )) {
+        $button_label = __('Login or Register with Facebook', 'alkaweb');
+    } else {
+        $button_label = __('Login with Facebook', 'alkaweb');
+    }
+    // HTML markup
+    $html = '&lt;div id="alka-facebook-wrapper"&gt;';
+    // Messages
+    if(isset($_SESSION['alka_facebook_message'])) {
+        $message = $_SESSION['alka_facebook_message'];
+        $html .= '&lt;div id="alka-facebook-message" class="alert alert-danger"&gt;'.$message.'&lt;/div&gt;';
+        // We remove them from the session
+        unset($_SESSION['alka_facebook_message']);
+    }
+    // Button
+    $html .= '&lt;a href="'.$this-&gt;getLoginUrl().'" class="btn" id="alka-facebook-button"&gt;'.$button_label.'&lt;/a&gt;';
+    $html .= '&lt;/div&gt;';
+    // Write it down
+    return $html;
+}</pre>
+<p>So what about we build our callback method now? The callback is split in 4 other methods:</p>
+<ul>
+<li><strong>getToken</strong>, to ask the Facebook API to get an authentication unique token. See the Facebook documentation <a href="https://developers.facebook.com/docs/facebook-login/access-tokens" target="_blank" rel="noopener noreferrer">here</a> for all the details.</li>
+<li><strong>getUserDetails</strong>, once we have a token, we now ask the API to get the user&#8217;s details (name, email&#8230;). You can see all the information that you can fetch <a href="https://developers.facebook.com/docs/facebook-login/permissions#reference-public_profile" target="_blank" rel="noopener noreferrer">here</a>.</li>
+<li><strong>loginUser</strong>, to login the User to WordPress.</li>
+<li><strong>createUser</strong>, to register a new user in WordPress.</li>
+</ul>
+<p>Therefore, to decide if we login or register the user, we save for each user a new <a href="https://codex.wordpress.org/Database_Description#Table:_wp_usermeta" target="_blank" rel="noopener noreferrer">user meta</a>: <strong>alka_facebook_id</strong>. Which is the Facebook user&#8217;s id. If it exists in our database, we login the user. If not, we make sure registration is allowed on the site before creating a new user.</p>
+<pre>/**
+ * API call back running whenever we hit /wp-admin/admin-ajax.php?action=alka_facebook
+ * This code handles the Login / Regsitration part
+ */
+public function apiCallback() {
+    if(!session_id()) {
+        session_start();
+    }
+    // Set the Redirect URL:
+    $this-&gt;redirect_url = (isset($_SESSION['alka_facebook_url'])) ? $_SESSION['alka_facebook_url'] : home_url();
+    // We start the connection
+    $fb = $this-&gt;initApi();
+    // We save the token in our instance
+    $this-&gt;access_token = $this-&gt;getToken($fb);
+    // We get the user details
+    $this-&gt;facebook_details = $this-&gt;getUserDetails($fb);
+    // We first try to login the user
+    $this-&gt;loginUser();
+    // Otherwise, we create a new account
+    $this-&gt;createUser();
+    // Redirect the user
+    header("Location: ".$this-&gt;redirect_url, true);
+    die();
+}</pre>
+<p>Let&#8217;s create our 4 methods within our call back method:</p>
+<pre>/**
+ * Get a TOKEN from the Facebook API
+ * Or redirect back if there is an error
+ *
+ * @param $fb Facebook
+ * @return string - The Token
+ */
+private function getToken($fb) {
+    // Assign the Session variable for Facebook
+    $_SESSION['FBRLH_state'] = $_GET['state'];
+    // Load the Facebook SDK helper
+    $helper = $fb-&gt;getRedirectLoginHelper();
+    // Try to get an access token
+    try {
+        $accessToken = $helper-&gt;getAccessToken();
+    }
+    // When Graph returns an error
+    catch(FacebookResponseException $e) {
+        $error = __('Graph returned an error: ','alkaweb'). $e-&gt;getMessage();
+        $message = array(
+            'type' =&gt; 'error',
+            'content' =&gt; $error
+        );
+    }
+    // When validation fails or other local issues
+    catch(FacebookSDKException $e) {
+        $error = __('Facebook SDK returned an error: ','alkaweb'). $e-&gt;getMessage();
+        $message = array(
+            'type' =&gt; 'error',
+            'content' =&gt; $error
+        );
+    }
+    // If we don't got a token, it means we had an error
+    if (!isset($accessToken)) {
+        // Report our errors
+        $_SESSION['alka_facebook_message'] = $message;
+        // Redirect
+        header("Location: ".$this-&gt;redirect_url, true);
+        die();
+    }
+    return $accessToken-&gt;getValue();
+}
+</pre>
+<pre>/**
+ * Get user details through the Facebook API
+ *
+ * @link https://developers.facebook.com/docs/facebook-login/permissions#reference-public_profile
+ * @param $fb Facebook
+ * @return \Facebook\GraphNodes\GraphUser
+ */
+private function getUserDetails($fb)
+{
+    try {
+        $response = $fb-&gt;get('/me?fields=id,name,first_name,last_name,email,link', $this-&gt;access_token);
+    } catch(FacebookResponseException $e) {
+        $message = __('Graph returned an error: ','alkaweb'). $e-&gt;getMessage();
+        $message = array(
+            'type' =&gt; 'error',
+            'content' =&gt; $error
+        );
+    } catch(FacebookSDKException $e) {
+        $message = __('Facebook SDK returned an error: ','alkaweb'). $e-&gt;getMessage();
+        $message = array(
+            'type' =&gt; 'error',
+            'content' =&gt; $error
+        );
+    }
+    // If we caught an error
+    if (isset($message)) {
+        // Report our errors
+        $_SESSION['alka_facebook_message'] = $message;
+        // Redirect
+        header("Location: ".$this-&gt;redirect_url, true);
+        die();
+    }
+    return $response-&gt;getGraphUser();
+}</pre>
+<pre>/**
+ * Login an user to WordPress
+ *
+ * @link https://codex.wordpress.org/Function_Reference/get_users
+ * @return bool|void
+ */
+private function loginUser() {
+    // We look for the `eo_facebook_id` to see if there is any match
+    $wp_users = get_users(array(
+        'meta_key'     =&gt; 'alka_facebook_id',
+        'meta_value'   =&gt; $this-&gt;facebook_details['id'],
+        'number'       =&gt; 1,
+        'count_total'  =&gt; false,
+        'fields'       =&gt; 'id',
+    ));
+    if(empty($wp_users[0])) {
+        return false;
+    }
+    // Log the user ?
+    wp_set_auth_cookie( $wp_users[0] );
+}</pre>
+<pre>/**
+ * Create a new WordPress account using Facebook Details
+ */
+private function createUser() {
+    $fb_user = $this-&gt;facebook_details;
+    // Create an username
+    $username = sanitize_user(str_replace(' ', '_', strtolower($this-&gt;facebook_details['name'])));
+    // Creating our user
+    $new_user = wp_create_user($username, wp_generate_password(), $fb_user['email']);
+    if(is_wp_error($new_user)) {
+        // Report our errors
+        $_SESSION['alka_facebook_message'] = $new_user-&gt;get_error_message();
+        // Redirect
+        header("Location: ".$this-&gt;redirect_url, true);
+        die();
+    }
+    // Setting the meta
+    update_user_meta( $new_user, 'first_name', $fb_user['first_name'] );
+    update_user_meta( $new_user, 'last_name', $fb_user['last_name'] );
+    update_user_meta( $new_user, 'user_url', $fb_user['link'] );
+    update_user_meta( $new_user, 'alka_facebook_id', $fb_user['id'] );
+    // Log the user ?
+    wp_set_auth_cookie( $new_user );
+}</pre>
+<p>All good! We are ready to go.<br />
+Each method might require some comments, let me know if you have any question about them. I can update the article but the code is pretty commented though.<br />
+You can see the whole plugin from this <a href="https://github.com/2Fwebd/alka-facebook" target="_blank" rel="noopener noreferrer">Github repository</a>.</p>
+<h2>Improvements</h2>
+<p>This plugin can be improved in several ways:</p>
+<ul>
+<li>Create an option panel to get the APP ID and APP SECRET from the WordPress admin, which would be a bit more handy, right?</li>
+<li>Styling our button using some cool CSS and a nice Facebook icon.</li>
+<li>Displaying a welcome message when the user is logged in.</li>
+<li>Saving the avatar from Facebook to WordPress.</li>
+<li>Sending an email to the user with his password and username to be able to connect later without Facebook.</li>
+</ul>
+<p><del>Liked this tutorial? Let us know, we could go through a part 2 where I would explain how to do all these improvements.</del><br />
+<strong>Update: <a href="https://alka-web.com/blog/how-to-create-a-…ebook-api-part-2/" target="_blank" rel="noopener noreferrer">You can find part 2 here</a>!</strong><br />
+&nbsp;<br />
+Thanks for reading!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://woffice.io/create-plugin-to-login-register-using-facebook/feed/</wfw:commentRss>
+			<slash:comments>33</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Use Slack with WordPress and Woffice to boost your productivity</title>
+		<link>https://woffice.io/use-slack-along-with-wordpress-woffice/</link>
+					<comments>https://woffice.io/use-slack-along-with-wordpress-woffice/#comments</comments>
+		
+		<dc:creator><![CDATA[woadmin]]></dc:creator>
+		<pubDate>Mon, 21 Nov 2016 10:06:53 +0000</pubDate>
+				<category><![CDATA[Woffice]]></category>
+		<category><![CDATA[Api]]></category>
+		<category><![CDATA[Programmatically]]></category>
+		<guid isPermaLink="false">https://alka-web.com/wp/?p=258</guid>
+
+					<description><![CDATA[Today, we will discuss here how we can use the well known application Slack along with WordPress and the Woffice theme. Slack has over 5.8 million active users and powers communication in more than 60 000 teams around the world (source). Yet, we won&#8217;t go [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Today, we will discuss here how we can use the well known application <a href="https://slack.com/" target="_blank" rel="nofollow noopener noreferrer">Slack</a> along with WordPress and the <a href="https://woffice.io/" target="_blank" rel="noopener noreferrer">Woffice</a> theme. Slack has over 5.8 million active users and powers communication in more than 60 000 teams around the world (<a href="http://expandedramblings.com/index.php/slack-statistics/" target="_blank" rel="nofollow noopener noreferrer">source</a>). Yet, we won&#8217;t go through all Slack&#8217;s milestones here. Just to say it&#8217;s a very used tool and it provides a very good way to get rid of emails. Certainly why everyone love it!<br />
+Furthermore, the biggest advantage of Slack is the ability to add 3rd-party applications in order to stay tuned about pretty much any application related to your business. Over <strong>150 integrations</strong> actually on <a href="https://slack.com/apps" target="_blank" rel="noopener noreferrer">their apps directory</a>, all for free.<br />
+So, what about we receive live notifications from our WordPress intranet/extranet right into our Slack channels? Sounds cool. Well, we&#8217;ve done it with Woffice and I will show you how to set it up in 5 minutes.</p>
+<h2>How to set it up?</h2>
+<p>We assume, you have WordPress set up on your side with the <a href="https://woffice.io/" target="_blank" rel="noopener noreferrer">Woffice theme</a> installed. That&#8217;s all you need, with a Slack account, of course.<br />
+First, we have to activate the <strong>Woffice Slack extension</strong> from Woffice (or Unyson page) &gt; Extensions:<br />
+<img loading="lazy" class="aligncenter wp-image-261 size-full" title="Woffice Slack along with WordPess extension" src="https://alka-web.com/wp/wp-content/uploads/2016/11/1.jpg" alt="1" width="1275" height="664" /><br />
+Secondly, we need to create our own Slack app in order to create a connection between your WordPress Intranet and your Slack team account. For this, you have to click the &#8220;<strong>Settings</strong>&#8221; link to go on the extension&#8217;s settings page. You can see now a &#8220;Create a new application&#8221; link that will lead you to <a href="https://api.slack.com/apps" target="_blank" rel="noopener noreferrer">the right place</a>.<br />
+Click on &#8220;<strong>Create New App</strong>&#8221; and fill in the form, everything can be changed later. You should see:<br />
+&nbsp;<br />
+<img loading="lazy" class="alignnone wp-image-264 size-full" title="Create application Slack" src="https://alka-web.com/wp/wp-content/uploads/2016/11/2-1.jpg" alt="2" width="1276" height="668" /><br />
+Then, once you application created, you&#8217;ll get a <strong>client ID</strong> and a <strong>client Secret</strong>. You need to copy/past those two fields in the extension&#8217;s settings back on Woffice:<br />
+<img loading="lazy" class="alignnone wp-image-265 size-full" title="Client ID and Secret" src="https://alka-web.com/wp/wp-content/uploads/2016/11/Unyson_‹_Woffice_Dev_—_WordPress.jpg" alt="unyson__woffice_dev_-_wordpress" width="995" height="553" /><br />
+Last but not least, you need to copy/past the<strong> Call Back URL</strong> from the Woffice extension&#8217;s settings to the Slack &gt; <strong>OAuth &amp; Permissions &gt; Redirect URL</strong> input field:<br />
+<img loading="lazy" class="alignnone wp-image-266 size-full" title="Slack callback URL" src="https://alka-web.com/wp/wp-content/uploads/2016/11/3.jpg" alt="3" width="1275" height="675" /><br />
+You can add your own icon to your Slack boat.<br />
+Don&#8217;t forget to save everything. At this point we have a new application on Slack, which is a good start!<br />
+Thirdly, we need to assign our notifications to a Slack channel trough our brand new application. We can do that by going to the &#8220;<strong>Slack Notifications</strong>&#8221; tab on the extension&#8217;s settings page.<br />
+Thus, we can see a pretty sweet &#8220;<strong>Add to Slack</strong>&#8221; button, well we can click on it so we can choose on which channel will the notifications be published. Once this button clicked, you need to Authorize access to one your Slack team. Then, you can select a channel from the &#8220;<strong>Post to</strong>&#8221; option. See:<img loading="lazy" class="alignnone wp-image-267 size-full" title="Add to Slack button" src="https://alka-web.com/wp/wp-content/uploads/2016/11/4.jpg" alt="4" width="1278" height="667" /><br />
+You can now choose the triggers that will push notifications from WordPress to your Slack channel.<br />
+We&#8217;re ready to go! Whenever an action (that you&#8217;ve enabled on the above form) is triggered on your Intranet, it&#8217;ll be sent in real time on your Slack channel. So you can keep all your data in one place, saving time and improving your team communication.<br />
+Note that we&#8217;ve added 5 triggers so far, but we&#8217;ll add more in the coming updates. Just let us know your thoughts if you have any idea.<br />
+The available triggers (<em>Woffice 2.2.0</em>) are whenever a new:</p>
+<ul>
+<li>Comment is posted</li>
+<li>User is registered (or added by an administrator)</li>
+<li>BuddyPress activity (only if the activity is public)</li>
+<li>Post (whether it is a blog post, page, project, wiki, product, directory item&#8230;)</li>
+<li>Task on a project</li>
+</ul>
+<h2>Going one step further and create your own notification</h2>
+<p>The best part is that once the Slack extension enabled on your site and working. Woffice comes with a helper function to manage all the dirty API code for you. One single function to use anywhere in your Intranet/Extranet to post sweet Slack notifications that you can customize in a matter of minutes.<br />
+However, we assume here that you&#8217;ve PHP skills (you don&#8217;t need to be an expert here).<br />
+The function is defined in <strong>woffice/framework-customizations/extensions/woffice-slack/helpers.php</strong> and can be used like this:</p>
+<pre>// Our notification data:
+$notification = array(
+    'title' =&gt; 'Hey I\'m the title',
+    'title_link' =&gt; 'Link to your site or any page', // like: get_site_url()
+    'pretext' =&gt; 'Just above the title',
+    'text' =&gt; 'Text content',
+);
+// Let's send our notification to our Slack channel
+woffice_slack_send_notification($notification)
+</pre>
+<p>Although, if you try that PHP code in your child theme, it&#8217;ll work right out of the box but there are 2 important points:</p>
+<ol>
+<li>Slack API is rich! The <strong>$notification</strong> array will be passed as a Slack attachment, see<strong> <a href="https://api.slack.com/docs/message-attachments" target="_blank" rel="nofollow noopener noreferrer">their documentation</a></strong> for all details. So you can add images, author name, icons, buttons&#8230;</li>
+<li><strong>You must call</strong> woffice_slack_send_notification under an <a href="https://developer.wordpress.org/reference/functions/add_action/" target="_blank" rel="noopener noreferrer">add_action() callback function</a> (see next example). So your notification is triggered on a certain event and not whenever you page is loaded.</li>
+</ol>
+<h2>Developer example: Contact Form 7 Slack integration</h2>
+<p>Finally, we&#8217;ll see now an example with the Contact Form 7 plugin. We&#8217;re using the default contact form but you can adapt with your own settings.</p>
+<pre>/**
+ * Trigger a notification whenever an email is being sent
+ * through a Contact Form 7 form
+ * Note that :mail: &amp; :bust_in_silhouette: are Emojies used by Slack
+ * @param $contact_form : WPCF7_ContactForm
+ */
+function woffice_slack_hook_cf7($contact_form) {
+    // We get the form title:
+    $title = $contact_form-&gt;title();
+    // We get the current submission
+    $submission = WPCF7_Submission::get_instance();
+    if ( $submission ) {
+        // We get the submission data:
+        $posted_data = $submission-&gt;get_posted_data();
+        // We build our notification array:
+        $notification = array(
+            'title' =&gt; $posted_data['your-subject'],
+            'title_link' =&gt; get_admin_url(),
+            'pretext' =&gt; ':mail: ' . __('New form submission on', 'woffice') . ' ' . $title,
+            'text' =&gt; $posted_data['your-message'],
+            'fields' =&gt; array(
+                array(
+                    'title' =&gt; ':bust_in_silhouette: ' . __('Sent by', 'woffice'),
+                    'value' =&gt; $posted_data['your-email'],
+                    'short' =&gt; true
+                )
+            )
+        );
+        // We push the notification to Slack
+        woffice_slack_send_notification($notification);
+    }
+}
+add_action('wpcf7_mail_sent', 'woffice_slack_hook_cf7');</pre>
+<p>It&#8217;s just an example, you can do that with your favourite plugins, as long as they&#8217;re well documented. Building your custom notifications will be very easy.<br />
+We&#8217;re really looking forward to add more integrations, let us know your ideas.<br />
+&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://woffice.io/use-slack-along-with-wordpress-woffice/feed/</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>How to restrict access to the WordPress dashboard programmatically</title>
+		<link>https://woffice.io/how-to-restrict-access-to-wordpress-dashboard-programmatically/</link>
+					<comments>https://woffice.io/how-to-restrict-access-to-wordpress-dashboard-programmatically/#comments</comments>
+		
+		<dc:creator><![CDATA[woadmin]]></dc:creator>
+		<pubDate>Tue, 25 Oct 2016 13:27:40 +0000</pubDate>
+				<category><![CDATA[WordPress tutorials]]></category>
+		<category><![CDATA[Programmatically]]></category>
+		<guid isPermaLink="false">https://alka-web.com/wp/?p=220</guid>
+
+					<description><![CDATA[You could think “I just need to install a plugin, there are at least a dozen of plugins that do this”. That’s true, there are a lot of plugins that limit the access to the dashboard of WordPress, but are [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>You could think “<em>I just need to install a plugin, there are at least a dozen of plugins that do this</em>”. That’s true, there are a lot of plugins that limit the access to the dashboard of WordPress, but <strong>are you sure that a plugin is always the best choose</strong>?<br />
+If you want limit the access to your WordPress dashboard<strong> avoiding side effects</strong>, or if you tried to do it programmatically by yourself and something gone wrong, this is the article which you are looking for.<span id="more-316"></span></p>
+<h2>Why avoid to use a plugin</h2>
+<p>There are a lot of plugins that can help you to achieve this result, just few example:</p>
+<ul>
+<li><a href="https://wordpress.org/plugins/restrict-dashboard-by-role/" target="_blank" rel="nofollow noopener noreferrer">Restrict Dashboard by Role</a></li>
+<li><a href="https://wordpress.org/plugins/remove-dashboard-access-for-non-admins/" target="_blank" rel="nofollow noopener noreferrer">Remove Dashboard Access</a></li>
+<li><a href="https://wordpress.org/plugins/wp-hide-dashboard/" target="_blank" rel="nofollow noopener noreferrer">WP Hide Dashboard</a></li>
+</ul>
+<p>So why should you hide your WordPress dashboard programmatically, instead of use one of these plugins? Because an elevated number of plugins can cause many side effects. Foremost it can <strong>increase the loading time of your site</strong>, making it slower and unpleasant for your users. In addition you have to update periodically one more plugin and, if the plugin is not longer updated and supported by its author, <strong>it could become a security risk for all your site</strong>.<br />
+In my opinion, there is really no reason to take these risks, because you can achieve the same result just writing down very few lines of code.</p>
+<h2>Hide the WordPress dashboard avoiding the AJAX trap</h2>
+<p>As I told, it’s possible to limit access to the dashboard with few lines of code, it’s actually just a redirect with an if statement, so why many customers have failed and asked us support for this easy task? Because they have not considered <strong>the AJAX trap</strong>.<br />
+So let me show you the <strong>wrong way</strong> to achieve it. Usually the code of our customers was something like that:</p>
+<pre>add_action( 'admin_init', 'my_custom_dashboard_access_handler');
+function my_custom_dashboard_access_handler() {
+   // Check if the current user has admin capabilities
+   if ( !current_user_can( 'manage_users' )) {
+      wp_redirect( home_url() );
+      exit;
+   }
+}</pre>
+<p><span style="font-weight: 400;">What is wrong in this code? Actually there is nothing really </span><i><span style="font-weight: 400;">wrong</span></i><span style="font-weight: 400;">, but there is something </span><i><span style="font-weight: 400;">missing</span></i><span style="font-weight: 400;">. Using this code, you&nbsp;forget that every ajax call handled by WordPress is sent to www.yoursite.com/wp-admin/wp-ajax.php which is an admin page. </span>This mean that<b>&nbsp;the code below blocks every ajax call </b>of your site<b>.</b><br />
+In the light of this new consideration, this is the working code:</p>
+<pre>// Coould be better adds the function to the 'init' hook and check later if it's an admin page
+add_action( 'init', 'my_custom_dashboard_access_handler');
+function my_custom_dashboard_access_handler() {
+   // Check if the current page is an admin page
+   // &amp;&amp; check if the current user has admin capabilities
+   // &amp;&amp; and ensure that this is not an ajax call
+   if ( is_admin() &amp;&amp; !current_user_can( 'manage_users' ) &amp;&amp; ! ( defined( 'DOING_AJAX' ) &amp;&amp; DOING_AJAX )) {
+      wp_redirect( home_url() );
+      exit;
+   }
+}</pre>
+<p><strong>NOTE:</strong> You may read around that <code>current_user_can( 'manage_users' )</code> and <code>current_user_can( 'administrator' )</code> return always the same result. This is wrong because&nbsp;<code>current_user_can( 'administrator' )</code> creates troubles in multisite installations, because it return false for superadmins.</p>
+<h2>Limit access to the admin panel&nbsp;only to certain roles</h2>
+<p>If you want to limit the access to many specific roles and you want avoid to add such many OR statement, you can do in this way:</p>
+<pre>// Could be better adds the function to the 'init' hook and check later if it's an admin page
+add_action( 'init', 'my_custom_dashboard_access_handler');
+function my_custom_dashboard_access_handler() {
+   // Check if the current page is an admin page
+   // &amp;&amp; and ensure that this is not an ajax call
+   if ( is_admin() &amp;&amp; !( defined( 'DOING_AJAX' ) &amp;&amp; DOING_AJAX ) ){
+      //Get all capabilities of the current user
+      $user = get_userdata( get_current_user_id() );
+      $caps = ( is_object( $user) ) ? array_keys($user-&gt;allcaps) : array();
+      //All capabilities/roles listed here are not able to see the dashboard
+      $block_access_to = array('subscriber', 'contributor', 'my-custom-role', 'my-custom-capability');
+      if(array_intersect($block_access_to, $caps)) {
+         wp_redirect( home_url() );
+         exit;
+      }
+   }
+}</pre>
+<h2>Conclusion</h2>
+<p>You have discovered that rely you to third-part plugins is not always a good idea, it can have some side effects and sometime,like in this case, the result is really really easy to achieve the same result programmatically.<br />
+If you have any question or you think that that something in the code should be even improved, or if you liked the article and you want just say thank you, it would be really appreciated to see a comment right below.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://woffice.io/how-to-restrict-access-to-wordpress-dashboard-programmatically/feed/</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

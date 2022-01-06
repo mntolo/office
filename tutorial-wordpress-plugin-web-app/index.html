@@ -1,0 +1,406 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#">
+<!-- Mirrored from woffice.io/tutorial-wordpress-plugin-web-app/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Dec 2021 14:02:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="profile" href="http://gmpg.org/xfn/11"><link rel="pingback" href="../xmlrpc.php"><link rel="shortcut icon" type="image/png" href="../wp-content/themes/woffice-landing/assets/images/32.png">
+<!--[if lt IE 9]> <script src="https://woffice.io/wp-content/themes/woffice-landing/assets/js/html5shiv.js"></script> <script src="https://woffice.io/wp-content/themes/woffice-landing/assets/js/respond.min.js"></script> <![endif]--> <script>dataLayer = [{"title":"How To Create a WordPress Plugin For Your Web App","author":"woadmin","wordcount":2802,"logged_in":"false","page_id":600,"post_date":"2018-02-23 09:24:49","post_type":"post"}];</script>  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T429548');</script> <title>How To Create a WordPress Plugin For Your Web App - Woffice</title><meta name="description" content="Learn how to create a WordPress plugin for your web applications very easily, in a few easy steps. Best of all, it&#039;s free and covered with examples."/><meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/><link rel="canonical" href="index.html" /><meta property="og:locale" content="en_US" /><meta property="og:type" content="article" /><meta property="og:title" content="How To Create a WordPress Plugin For Your Web App - Woffice" /><meta property="og:description" content="Learn how to create a WordPress plugin for your web applications very easily, in a few easy steps. Best of all, it&#039;s free and covered with examples." /><meta property="og:url" content="https://woffice.io/tutorial-wordpress-plugin-web-app/" /><meta property="og:site_name" content="Woffice" /><meta property="article:section" content="WordPress tutorials" /><meta property="og:updated_time" content="2021-03-26T04:24:54+00:00" /><meta property="og:image" content="https://alka-web.com/wp/wp-content/uploads/2018/02/Woffice_-_Best_Intranet___Extranet_Wordpress_Theme.jpg" /><meta property="og:image:secure_url" content="https://alka-web.com/wp/wp-content/uploads/2018/02/Woffice_-_Best_Intranet___Extranet_Wordpress_Theme.jpg" /><meta property="og:image:alt" content="web app" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="How To Create a WordPress Plugin For Your Web App - Woffice" /><meta name="twitter:description" content="Learn how to create a WordPress plugin for your web applications very easily, in a few easy steps. Best of all, it&#039;s free and covered with examples." /><meta name="twitter:image" content="https://alka-web.com/wp/wp-content/uploads/2018/02/Woffice_-_Best_Intranet___Extranet_Wordpress_Theme.jpg" /> <script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://woffice.io/#organization","name":"Woffice"},{"@type":"WebSite","@id":"https://woffice.io/#website","url":"https://woffice.io","name":"Woffice","publisher":{"@id":"https://woffice.io/#organization"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://woffice.io/author/woadmin/","name":"woadmin","url":"https://woffice.io/author/woadmin/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/ed15d1fe1462ae0b72a445bce683cb13?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/ed15d1fe1462ae0b72a445bce683cb13?s=96&amp;d=mm&amp;r=g","caption":"woadmin","inLanguage":"en-US"},"worksFor":{"@id":"https://woffice.io/#organization"}},{"@type":"WebPage","@id":"https://woffice.io/tutorial-wordpress-plugin-web-app/#webpage","url":"https://woffice.io/tutorial-wordpress-plugin-web-app/","name":"How To Create a WordPress Plugin For Your Web App - Woffice","datePublished":"2018-02-23T09:24:49+00:00","dateModified":"2021-03-26T04:24:54+00:00","author":{"@id":"https://woffice.io/author/woadmin/"},"isPartOf":{"@id":"https://woffice.io/#website"},"inLanguage":"en-US"},{"@type":"BlogPosting","headline":"How To Create a WordPress Plugin For Your Web App - Woffice","keywords":"web app","datePublished":"2018-02-23T09:24:49+00:00","dateModified":"2021-03-26T04:24:54+00:00","author":{"@id":"https://woffice.io/author/woadmin/"},"publisher":{"@id":"https://woffice.io/#organization"},"description":"Learn how to create a WordPress plugin for your web applications very easily, in a few easy steps. Best of all, it&#039;s free and covered with examples.","name":"How To Create a WordPress Plugin For Your Web App - Woffice","@id":"https://woffice.io/tutorial-wordpress-plugin-web-app/#richSnippet","isPartOf":{"@id":"https://woffice.io/tutorial-wordpress-plugin-web-app/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://woffice.io/tutorial-wordpress-plugin-web-app/#webpage"}}]}</script> <link rel='dns-prefetch' href='http://s.w.org/' /><link rel="alternate" type="application/rss+xml" title="Woffice &raquo; Feed" href="../feed/index.html" /><link rel="alternate" type="application/rss+xml" title="Woffice &raquo; Comments Feed" href="../comments/feed/index.html" /><link rel="alternate" type="application/rss+xml" title="Woffice &raquo; How To Create a WordPress Plugin For Your Web App Comments Feed" href="feed/index.html" /> <script data-optimized="1" type="text/javascript">window._wpemojiSettings={"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/woffice.io\/wp-includes\/js\/wp-emoji-release.min.js"}};!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings)</script> <style type="text/css">img.wp-smiley,img.emoji{display:inline !important;border:none !important;box-shadow:none !important;height:1em !important;width:1em !important;margin:0 .07em !important;vertical-align:-.1em !important;background:0 0 !important;padding:0 !important}</style><link data-optimized="1" rel='stylesheet' id='jquery.prettyphoto-css'  href='../wp-content/litespeed/css/83ecf058c57152e9b79170d7f44aac0c359a.css?ver=aac0c' type='text/css' media='all' /><link data-optimized="1" rel='stylesheet' id='video-lightbox-css'  href='../wp-content/litespeed/css/d7e058e48b0ba319ab4a2e83e3b6a837a9da.css?ver=6a837' type='text/css' media='all' /><link data-optimized="1" rel='stylesheet' id='wp-block-library-css'  href='../wp-content/litespeed/css/bae7a282925d89d1c80a25369bf24575aeae.css?ver=24575' type='text/css' media='all' /><link data-optimized="1" rel='stylesheet' id='groundhogg-form-style-css-css'  href='../wp-content/litespeed/css/927357cf5a22540031622b45ffa6ab17bcd9.css?ver=6ab17' type='text/css' media='all' /><link data-optimized="1" rel='stylesheet' id='edd-styles-css'  href='../wp-content/litespeed/css/dff0ecef5da42776dbfb96b54033e626dcdb.css?ver=3e626' type='text/css' media='all' /><link data-optimized="1" rel='stylesheet' id='rs-plugin-settings-css'  href='../wp-content/litespeed/css/f547e64e19e10c4a73a158987be97ababb8d.css?ver=97aba' type='text/css' media='all' /><style id='rs-plugin-settings-inline-css' type='text/css'></style><link data-optimized="1" rel='stylesheet' id='jck-sfr-main-css'  href='../wp-content/litespeed/css/dcf423f1b0f4ff9f2f4d1295d663bfcd8c2a.css?ver=3bfcd' type='text/css' media='all' /><link data-optimized="1" rel='stylesheet' id='slicewp-style-css'  href='../wp-content/litespeed/css/557cbc4b11fa4256b0cf541d63131dc7a670.css?ver=31dc7' type='text/css' media='all' /><link data-optimized="1" rel='stylesheet' id='edd-recurring-css'  href='../wp-content/litespeed/css/6a2c2830d4f0bbe4a447a8c791e7f7dcddb0.css?ver=7f7dc' type='text/css' media='all' /><link data-optimized="1" rel='stylesheet' id='woffice-assets-css'  href='../wp-content/litespeed/css/c453ba0c10318f9f5f61da439621afcd7935.css?ver=1afcd' type='text/css' media='all' /><link data-optimized="1" rel='stylesheet' id='woffice-theme-style-css'  href='../wp-content/litespeed/css/f3fe3ff0746929afc026bcc4dc4b0c00e54a.css?ver=b0c00' type='text/css' media='all' /><link data-optimized="1" rel='stylesheet' id='sib-front-css-css'  href='../wp-content/litespeed/css/aff87f5eabd3edb94a84d2ddb3cacd7117c9.css?ver=acd71' type='text/css' media='all' /> <script type='text/javascript' src='../wp-includes/js/jquery/jquery.min.js' id='jquery-core-js'></script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/b82780269aabfb3cc7db04ef430da943aeb8.js?ver=da943' id='jquery-migrate-js'></script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/04da3b4701f88d8c7323f82ed86786f74d22.js?ver=786f7' id='jquery.prettyphoto-js'></script> <script data-optimized="1" type='text/javascript' id='video-lightbox-js-extra'>var vlpp_vars={"prettyPhoto_rel":"wp-video-lightbox","animation_speed":"fast","slideshow":"5000","autoplay_slideshow":"false","opacity":"0.80","show_title":"true","allow_resize":"true","allow_expand":"true","default_width":"640","default_height":"480","counter_separator_label":"\/","theme":"pp_default","horizontal_padding":"20","hideflash":"false","wmode":"opaque","autoplay":"false","modal":"false","deeplinking":"false","overlay_gallery":"true","overlay_gallery_max":"30","keyboard_shortcuts":"true","ie6_fallback":"true"}</script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/1d3a71b26c32f50d0eae2e589d05ccf3910e.js?ver=5ccf3' id='video-lightbox-js'></script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/7ca71eb358e084e90f7abcbc66440bb1ef42.js?ver=40bb1' id='tp-tools-js'></script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/d078e31f212e3f23ae58e87c764607c8d1af.js?ver=607c8' id='revmin-js'></script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/ac5dcf5e72a731ede91cb874395a35adaee7.js?ver=a35ad' id='slicewp-script-tracking-js'></script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/2c6c386a5c8a6d2ffc9fa38493d60c07a163.js?ver=60c07' id='woffice-theme-plugins-js'></script> <script data-optimized="1" type='text/javascript' id='sib-front-js-js-extra'>var sibErrMsg={"invalidMail":"Please fill out valid email address","requiredField":"Please fill out required fields","invalidDateFormat":"Please fill out valid date format","invalidSMSFormat":"Please fill out valid phone number"};var ajax_sib_front_object={"ajax_url":"https:\/\/woffice.io\/wp-admin\/admin-ajax.php","ajax_nonce":"6d8915ebbc","flag_url":"https:\/\/woffice.io\/wp-content\/plugins\/mailin\/img\/flags\/"}</script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/5c15a17c58d395e966ca5b083e607d927ed8.js?ver=07d92' id='sib-front-js-js'></script> <link rel="https://api.w.org/" href="../wp-json/index.html" /><link rel="alternate" type="application/json" href="../wp-json/wp/v2/posts/600.json" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" /><link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /><link rel='shortlink' href='../index2b8b.html?p=600' /><link rel="alternate" type="application/json+oembed" href="../wp-json/oembed/1.0/embedc863.json?url=https%3A%2F%2Fwoffice.io%2Ftutorial-wordpress-plugin-web-app%2F" /><link rel="alternate" type="text/xml+oembed" href="../wp-json/oembed/1.0/embed6da9?url=https%3A%2F%2Fwoffice.io%2Ftutorial-wordpress-plugin-web-app%2F&amp;format=xml" /><meta name="generator" content="Easy Digital Downloads v2.11.3.1" /> <script>WP_VIDEO_LIGHTBOX_VERSION="1.9.4";WP_VID_LIGHTBOX_URL="../wp-content/plugins/wp-video-lightbox.html";function wpvl_paramReplace(name,string,value){var re=new RegExp("[\?&]"+name+"=([^&#]*)");var matches=re.exec(string);var newString;if(matches===null){newString=string+'?'+name+'='+value}else{var delimeter=matches[0].charAt(0);newString=string.replace(re,delimeter+name+"="+value)}
+return newString}</script><meta name="generator" content="Powered by Slider Revolution 6.1.8 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." /> <script data-optimized="1" type="text/javascript">function setREVStartSize(e){try{var pw=document.getElementById(e.c).parentNode.offsetWidth,newh;pw=pw===0||isNaN(pw)?window.innerWidth:pw;e.tabw=e.tabw===undefined?0:parseInt(e.tabw);e.thumbw=e.thumbw===undefined?0:parseInt(e.thumbw);e.tabh=e.tabh===undefined?0:parseInt(e.tabh);e.thumbh=e.thumbh===undefined?0:parseInt(e.thumbh);e.tabhide=e.tabhide===undefined?0:parseInt(e.tabhide);e.thumbhide=e.thumbhide===undefined?0:parseInt(e.thumbhide);e.mh=e.mh===undefined||e.mh==""||e.mh==="auto"?0:parseInt(e.mh,0);if(e.layout==="fullscreen"||e.l==="fullscreen")
+newh=Math.max(e.mh,window.innerHeight);else{e.gw=Array.isArray(e.gw)?e.gw:[e.gw];for(var i in e.rl)if(e.gw[i]===undefined||e.gw[i]===0)e.gw[i]=e.gw[i-1];e.gh=e.el===undefined||e.el===""||(Array.isArray(e.el)&&e.el.length==0)?e.gh:e.el;e.gh=Array.isArray(e.gh)?e.gh:[e.gh];for(var i in e.rl)if(e.gh[i]===undefined||e.gh[i]===0)e.gh[i]=e.gh[i-1];var nl=new Array(e.rl.length),ix=0,sl;e.tabw=e.tabhide>=pw?0:e.tabw;e.thumbw=e.thumbhide>=pw?0:e.thumbw;e.tabh=e.tabhide>=pw?0:e.tabh;e.thumbh=e.thumbhide>=pw?0:e.thumbh;for(var i in e.rl)nl[i]=e.rl[i]<window.innerWidth?0:e.rl[i];sl=nl[0];for(var i in nl)if(sl>nl[i]&&nl[i]>0){sl=nl[i];ix=i}
+var m=pw>(e.gw[ix]+e.tabw+e.thumbw)?1:(pw-(e.tabw+e.thumbw))/(e.gw[ix]);newh=(e.type==="carousel"&&e.justify==="true"?e.gh[ix]:(e.gh[ix]*m))+(e.tabh+e.thumbh)}
+if(window.rs_init_css===undefined)window.rs_init_css=document.head.appendChild(document.createElement("style"));document.getElementById(e.c).height=newh;window.rs_init_css.innerHTML+="#"+e.c+"_wrapper { height: "+newh+"px }"}catch(e){console.log("Failure at Presize of Slider:"+e)}}</script> <style type="text/css" id="wp-custom-css">#navigation ul li ul.sub-menu.submenu-displayed{background-color:transparent;box-shadow:none;margin-top:-31px;padding-top:45px}.header-2 #navigation.navigation-fixed ul li.menu-item{margin-top:0;margin-bottom:0 !important;padding:10px;border:0}#navigation ul li ul.sub-menu.submenu-displayed li{margin-bottom:0;padding:10px}</style></head><body class="post-template-default single single-post postid-600 single-format-standard elementor-default elementor-kit-7728"><div id="page"><header id="header" class="header-2"><nav id="navigation" class="top-navigation navigation-fixed"><div class="container clearfix"><div class="navbar-header">
+<a href="../index.html" class="logo">
+<img src="../wp-content/uploads/2021/03/logo_woffice_white.png" alt="Woffice Light Logo" class="wo_light_logo">
+<img src="../wp-content/uploads/2021/03/logo_woffice_dark.png" alt="Woffice Dark Logo" class="wo_dark_logo">
+</a>
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button></div><div class="collapse navbar-collapse header-center-section" id="bs-example-navbar-collapse-1"><ul id="menu-menu-1" class="menu"><li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-8"><a href="../index.html#intranet">Demos</a></li><li id="menu-item-1745" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1745"><a href="../products/index.html">Add-ons</a></li><li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15"><a href="../index.html#features">Features</a></li><li id="menu-item-155" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-155"><a href="../partnership-program/index.html">Partners &#038; Affiliates</a></li><li id="menu-item-4980" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4980"><a href="../blog/index.html">Blog</a></li><li id="menu-item-24" class="buy-now-item menu-item menu-item-type-custom menu-item-object-custom menu-item-24"><a href="../go/theme-checkout/index.html">Buy now</a></li></ul></div></div></nav></header><div id="main-container"><div class="woffice_full_bg" style="background-image:url(../wp-content/themes/woffice-landing/assets/images/features/03_Blog_single-new-01.png);"><div class="wofland_main_banner" style="background-image:url(../wp-content/themes/woffice-landing/assets/images/single-banner.jpg);"><div class = "wofland_banner_content"><h2>How To Create a WordPress Plugin For Your Web App</h2></div></div><div id="content-container" class="container"><div class="col-md-1 col-sm-12"><div class="wofficestaging_social_tab"><ul class="wofland_blog_social"><li><span class="wtitleicon">Share With</span></li><li><a href="#" class="wficon"><i class="fa fa-facebook-f"></i>facebook</a></li><li><a href="#" class="wticon"><i class="fa fa-twitter"></i>twitter</a></li><li><a href="#" class="wiicon"><i class="fa fa-instagram"></i>instagram</a></li><li><a href="#" class="wpicon"><i class="fa fa-pinterest-p"></i>pinterest</a></li></ul></div></div><div class="col-md-10 col-sm-12"><div class="wofland_blog_post wofland_blog_post_single entry-content"><div class="wofland_blog_thumbnail">
+<a href="index.html">
+<img src="../wp-content/themes/woffice-landing/assets/images/blog_placeholder.png" alt="blog demo" />
+</a><div class="wofland_blog_date"><h4>23</h4>
+<span>Feb</span>
+<span>2018</span></div></div><div class="wofland_blog_heading"><div class="wofland_company_name">
+<span>WOffice</span></div><h2><a href="index.html">How To Create a WordPress Plugin For Your Web App</a></h2><div class="wofland_blog_taxanomy"><div class="wofland_blog_comment">
+<a href="index.html"><i class="fa fa-comments"></i>0Commments</a></div></div><p>Today, we are going to see how to create a very simple WordPress plugin for any web app that needs to insert a piece of code to your site.</p><p>To follow this tutorial, you need basics:</p><ul><li><strong>PHP</strong> and Object Oriented Programming</li><li><strong>JavaScript</strong>, we&#8217;ll use jQuery and Ajax</li><li><strong>WordPress development,</strong> most functions are from the WordPress core.</li></ul><p>You can find a working result of this tutorial on <a href="https://github.com/2Fwebd/feedier-wordpress-plugin" target="_blank" rel="noopener">this Github repository</a>.</p><p>These web apps could be <a href="http://crazyegg.com/" target="_blank" rel="noopener">CrazyEgg</a>, <a href="https://freshdesk.com/" target="_blank" rel="noopener"><g class="gr_ gr_8 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del multiReplace" id="8" data-gr-id="8">Freshbook</g></a>,<a href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener"> Google Analytic</a>, <a href="https://www.facebook.com/business/a/facebook-pixel" target="_blank" rel="noopener">Facebook Pixel</a> or <a href="https://feedier.com/" target="_blank" rel="noopener">Feedier</a>.</p><p>Why?</p><p>They all need to inject some HTML / JavaScript code to your site for various purposes.</p><p>This &#8220;code&#8221; is always parametrized with variables and usually is a pain for the site owner because he needs to edit the theme&#8217;s templates. So, how about we create a plugin to do that for us?</p><p>Okay, let&#8217;s do it<g class="gr_ gr_5 gr-alert gr_gramm gr_inline_cards gr_run_anim Style multiReplace" id="5" data-gr-id="5">! </g></p><h2>Step 1: Find Your Web App &#8211; Feedier Example</h2><p>The goal of this tutorial is to create a WordPress plugin that adds a WordPress admin page.</p><p>Plus, some settings  to configure the app&#8217;s in-site widget and inject the HTML / Js code in our web page automatically. Nothing fancy, just something that works fine.</p><p><strong>So, we do need a web application for this tutorial. We will use for this example <a href="https://feedier.com/" target="_blank" rel="noopener">Feedier</a>. </strong></p><p><strong>However, if you do have the other web application to apply this tutorial, please do. Just rename the &#8220;feedier&#8221; with your app and adapt the settings to what this app needs. </strong></p><p><strong>Most of them will give you a snippet to add to your site in order to work.</strong></p><p>Quick briefing of <a href="https://feedier.com/" target="_blank" rel="noopener">Feedier</a> if you never heard of it:</p><ul><li>It&#8217;s a feedback collector tool, using surveys to understand your users</li><li>It&#8217;s very flexible</li><li><em>It&#8217;s free!&nbsp;</em></li><li><strong>Has a good API</strong> (very important here)</li><li><strong>Has an in-site widget</strong> (very important here)</li><li>Lets you reward your customers</li><li>Lets you create conditional questions</li><li>Has a complete analytic report dashboard</li><li>Lets you manage feedback individually</li></ul><p>Here is the widget we want to add automatically:</p><div class="wp-block-image"><figure class="aligncenter"><img src="../../alka-web.com/wp/wp-content/uploads/2018/02/Woffice_-_Best_Intranet___Extranet_Wordpress_Theme.html" alt="Feedier Widget Preview" class="wp-image-604"/></figure></div><p>If you signed up to Feedier, then you can simply find the code in the Share tab of your survey:</p><div class="wp-block-image"><figure class="aligncenter"><img src="../../alka-web.com/wp/wp-content/uploads/2018/02/Feedier_Dashboard_%e2%80%94_Next_generation_feedback.html" alt="Feedier Preview Sharing Method" class="wp-image-603"/></figure></div><h2>Step 2: Setup Our Plugin and Its Architecture</h2><p>WordPress plugins <g class="gr_ gr_5 gr-alert gr_gramm gr_inline_cards gr_run_anim Grammar multiReplace" id="5" data-gr-id="5">are</g> by design very simple. Our plugin will only need two files.</p><ul><li><strong>feedier.php</strong>: main plugin&#8217;s PHP file.</li><li><strong>assets/js/admin.js</strong>: JavaScript script to save the options using Ajax.</li></ul><p>You can create a new &#8220;feedier&#8221; directory (or name of your web app) in your <strong>wp-content/plugins/</strong> folder.</p><div class="wp-block-image"><figure class="aligncenter"><img src="../../alka-web.com/wp/wp-content/uploads/2018/02/js.html" alt="Directory Architecture" class="wp-image-606"/></figure></div><p>The most important file will be the plugin&#8217;s <strong>feedier.php</strong> class. Here is its structure:</p><pre class="wp-block-code"><code>&lt;?php
+/**
+ * Plugin Name:       Feedier
+ * Description:       Smart surveys start now!
+ * Version:           1.0.0
+ * Author:            Alkaweb
+ * Author URI:        https://alka-web.com
+ * Text Domain:       alkaweb
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * GitHub Plugin URI: https://github.com/2Fwebd/feedier-wordpress
+ */
+/*
+ * Plugin constants
+ */
+if(!defined('FEEDIER_URL'))
+	define('FEEDIER_URL', plugin_dir_url( __FILE__ ));
+if(!defined('FEEDIER_PATH'))
+	define('FEEDIER_PATH', plugin_dir_path( __FILE__ ));
+/*
+ * Main class
+ */
+/**
+ * Class Feedier
+ *
+ * This class creates the option page and add the web app script
+ */
+class Feedier
+{
+    /**
+     * Feedier constructor.
+     *
+     * The main plugin actions registered for WordPress
+     */
+    public function __construct()
+    {
+    }
+}
+/*
+ * Starts our plugin class, easy!
+ */
+new Feedier();</code></pre><p>We are doing a few things here:</p><ul><li>Declaring our plugin using the header comments</li><li>Defining a few handy constants to be able to find the plugin&#8217;s URL and PATH easily</li><li>Declaring our plugin class that will contain everything we need in this plugin. We just need a constructor method for now</li></ul><p>You should already see the plugin in your Plugins page, even though it&#8217;s not doing anything yet:</p><div class="wp-block-image"><figure class="aligncenter"><img src="../../alka-web.com/wp/wp-content/uploads/2018/02/Plugins_%e2%80%b9_TEST_%e2%80%94_WordPress.html" alt="WordPress plugin activation" class="wp-image-607"/></figure></div><h2>Step 3: Create Our Admin Page</h2><p>For this part, we will add a new Feedier admin page to our WordPress site and dynamically fetch our surveys from the Feedier&#8217;s API.</p><p>In our class&#8217; constructor let&#8217;s register three new actions which are required to add an admin page on WordPress:</p><pre class="wp-block-preformatted">/**
+ * Feedier constructor.
+ *
+ * The main plugin actions registered for WordPress
+ */
+public function __construct()
+{
+	// Admin page calls:
+	add_action( 'admin_menu', array( $this, 'addAdminMenu' ) );
+	add_action( 'wp_ajax_store_admin_data', array( $this, 'storeAdminData' ) );
+	add_action( 'admin_enqueue_scripts', array( $this, 'addAdminScripts' ) );
+}</pre><ul><li><strong>addAdminMenu</strong> will add a new page in the WordPress left menu. There will be also a callback to another method containing the page&#8217;s content.</li><li><strong>storeAdminData</strong> will be called whenever the user clicks the &#8220;Save settings&#8221; button.</li><li><strong>addAdminScripts </strong>will register a new JavaScript file to our WordPress admin in order to save the form&#8217;s data. But also exchanges some variables between the PHP side and JavaScript side.</li></ul><p>The first one is very easy, we just register the page:</p><pre class="wp-block-preformatted">/**
+ * Adds the Feedier label to the WordPress Admin Sidebar Menu
+ */
+public function addAdminMenu()
+{
+    add_menu_page(
+	__( 'Feedier', 'feedier' ),
+	__( 'Feedier', 'feedier' ),
+	'manage_options',
+	'feedier',
+	array($this, 'adminLayout'),
+	''
+     );
+}</pre><p>As you can see we use <a href="https://codex.wordpress.org/I18n_for_WordPress_Developers" target="_blank" rel="noopener">WordPress localization functions</a> for <em>all</em> strings. Note that the:</p><pre class="wp-block-preformatted">array($this, 'adminLayout')</pre><p>Is where we call another method containing the page&#8217;s content. The form needs to be adapted to your web app.</p><p>Here, we first need to get the public and private Feedier API keys. Once saved, we are going to use the private key to dynamically retrieve our surveys. Whenever we get the surveys and not an API error, we display some new options to configure the widget.</p><pre class="wp-block-preformatted">/**
+ * Outputs the Admin Dashboard layout containing the form with all its options
+ *
+ * @return void
+ */
+public function adminLayout()
+{
+	$data = $this-&gt;getData();
+	$surveys = $this-&gt;getSurveys($data['private_key']);
+	?&gt;
+	&lt;div class="wrap"&gt;
+	    &lt;h3&gt;&lt;?php _e('Feedier API Settings', 'feedier'); ?&gt;&lt;/h3&gt;
+            &lt;p&gt;
+	        &lt;?php _e('You can get your Feedier API settings from your &lt;b&gt;Integrations&lt;/b&gt; page.', 'feedier'); ?&gt;
+            &lt;/p&gt;
+            &lt;hr&gt;
+            &lt;form id="feedier-admin-form"&gt;
+		&lt;table class="form-table"&gt;
+                    &lt;tbody&gt;
+                        &lt;tr&gt;
+                            &lt;td scope="row"&gt;
+                                &lt;label&gt;&lt;?php _e( 'Public key', 'feedier' ); ?&gt;&lt;/label&gt;
+                            &lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;input name="feedier_public_key"
+                                       id="feedier_public_key"
+                                       class="regular-text"
+                                       value="&lt;?php echo (isset($data['public_key'])) ? $data['public_key'] : ''; ?&gt;"/&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td scope="row"&gt;
+                                &lt;label&gt;&lt;?php _e( 'Private key', 'feedier' ); ?&gt;&lt;/label&gt;
+                            &lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;input name="feedier_private_key"
+                                       id="feedier_private_key"
+                                       class="regular-text"
+                                       value="&lt;?php echo (isset($data['private_key'])) ? $data['private_key'] : ''; ?&gt;"/&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td&gt;
+                                &lt;hr&gt;
+                                &lt;h4&gt;&lt;?php _e( 'Widget options', 'feedier' ); ?&gt;&lt;/h4&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;?php if (!empty($data['private_key']) &amp;&amp; !empty($data['public_key'])): ?&gt;
+                            &lt;?php
+                            // if we don't even have a response from the API
+                            if (empty($surveys)) : ?&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;
+	                                    &lt;p class="notice notice-error"&gt;
+                                            &lt;?php _e( 'An error happened on the WordPress side. Make sure your server allows remote calls.', 'feedier' ); ?&gt;
+                                        &lt;/p&gt;
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;?php
+                            // If we have an error returned by the API
+                            elseif (isset($surveys['error'])): ?&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;
+                                        &lt;p class="notice notice-error"&gt;
+                                            &lt;?php echo $surveys['error']; ?&gt;
+                                        &lt;/p&gt;
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;?php
+                            // If the surveys were returned
+                            else: ?&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;
+                                        &lt;p class="notice notice-success"&gt;
+	                                        &lt;?php _e( 'The API connection is established!', 'feedier' ); ?&gt;
+                                        &lt;/p&gt;
+                                        &lt;div&gt;
+                                            &lt;label&gt;&lt;?php _e( 'Choose a survey', 'feedier' ); ?&gt;&lt;/label&gt;
+                                        &lt;/div&gt;
+                                        &lt;select name="feedier_widget_carrier_id"
+                                                id="feedier_widget_carrier_id"&gt;
+                                            &lt;?php
+                                            // We loop through the surveys
+                                            foreach ($surveys['data'] as $survey) : ?&gt;
+                                                &lt;?php
+                                                // We also only keep the id -&gt; x from the carrier_x returned by the API
+                                                $survey['id'] = substr($survey['id'], 8); ?&gt;
+                                                &lt;option value="&lt;?php echo $survey['id']; ?&gt;" &lt;?php echo ($survey['id'] === $data['widget_carrier_id']) ? 'selected' : '' ?&gt;&gt;
+                                                    &lt;?php echo $survey['name']; ?&gt;
+                                                &lt;/option&gt;
+                                            &lt;?php endforeach; ?&gt;
+                                        &lt;/select&gt;
+                                        &lt;hr&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;
+                                        &lt;div class="label-holder"&gt;
+                                            &lt;label&gt;&lt;?php _e( 'Display probability (from 0 to 100)', 'feedier' ); ?&gt;&lt;/label&gt;
+                                        &lt;/div&gt;
+                                        &lt;input name="feedier_widget_display_probability"
+                                               id="feedier_widget_display_probability"
+                                               class="regular-text"
+                                               value="&lt;?php echo (isset($data['widget_display_probability'])) ? $data['widget_display_probability'] : '100'; ?&gt;"/&gt;
+                                    &lt;/td&gt;
+                                    &lt;td&gt;
+                                        &lt;div class="label-holder"&gt;
+                                            &lt;label&gt;&lt;?php _e( 'Shaking effect (shake after 10s without click)', 'feedier' ); ?&gt;&lt;/label&gt;
+                                        &lt;/div&gt;
+                                        &lt;input name="feedier_widget_shake"
+                                               id="feedier_widget_shake"
+                                               type="checkbox"
+                                            &lt;?php echo (isset($data['widget_shake']) &amp;&amp; $data['widget_shake']) ? 'checked' : ''; ?&gt;/&gt;
+                                    &lt;/td&gt;
+                                    &lt;td&gt;
+                                        &lt;div class="label-holder"&gt;
+                                            &lt;label&gt;&lt;?php _e( 'Position', 'feedier' ); ?&gt;&lt;/label&gt;
+                                        &lt;/div&gt;
+                                        &lt;select name="feedier_widget_position"
+                                                id="feedier_widget_position"&gt;
+                                            &lt;option value="left" &lt;?php echo (!isset($data['widget_position']) || (isset($data['widget_position']) &amp;&amp; $data['widget_position'] === 'left')) ? 'checked' : ''; ?&gt;&gt;
+                                                &lt;?php _e( 'Left side', 'feedier' ); ?&gt;
+                                            &lt;/option&gt;
+                                            &lt;option value="right" &lt;?php echo (isset($data['widget_position']) &amp;&amp; $data['widget_position'] === 'right') ? 'checked' : ''; ?&gt;&gt;
+                                                &lt;?php _e( 'Right side', 'feedier' ); ?&gt;
+                                            &lt;/option&gt;
+                                        &lt;/select&gt;
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;?php endif; ?&gt;
+                        &lt;?php else: ?&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;
+                                    &lt;p&gt;Please fill up your API keys to see the widget options.&lt;/p&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;?php endif; ?&gt;
+                        &lt;tr&gt;
+                            &lt;td colspan="2"&gt;
+                                &lt;button class="button button-primary" id="feedier-admin-save" type="submit"&gt;&lt;?php _e( 'Save', 'feedier' ); ?&gt;&lt;/button&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/form&gt;
+	&lt;/div&gt;
+	&lt;?php
+}</pre><p>At the beginning of this method you can see that we are first getting the saved data with:</p><pre class="wp-block-preformatted">$data = $this-&gt;getData();</pre><p>And getting the surveys from the Feedier API:</p><pre class="wp-block-preformatted">$surveys = $this-&gt;getSurveys($data['private_key']);</pre><p>So let&#8217;s declare the first one:</p><pre class="wp-block-preformatted">/**
+ * The option name
+ *
+ * @var string
+ */
+private $option_name = 'feedier_data';
+/**
+ * Returns the saved options data as an array
+ *
+ * @return array
+ */
+private function getData() {
+    return get_option($this-&gt;option_name, array());
+}</pre><p>This function just reads our plugin&#8217;s option and gives us an array back so we can save multiple values in the same option.</p><p>Obviously, to get the second method working, we need the Feedier private key, which thus depends on the first one to access this key saved in the option:</p><pre class="wp-block-preformatted">/**
+ * Make an API call to the Feedier API and returns the response
+ *
+ * @param string $private_key
+ * @return array
+ */
+private function getSurveys($private_key)
+{
+    $data = array();
+    $response = wp_remote_get('https://api.feedier.com/v1/carriers/?api_key='. $private_key);
+    if (is_array($response) &amp;&amp; !is_wp_error($response)) {
+	$data = json_decode($response['body'], true);
+    }
+    return $data;
+}</pre><p>The <a href="https://feedier.docs.apiary.io/#reference/0/carrier-collection/get-a-list-of-carriers" target="_blank" rel="noopener">Feedier API is documented here</a>, so you can see what you will get in the response.</p><p>At this moment, we have a complete new Admin page but nothing happens when we click on the save button because there is no saving mechanism, <em>yet</em>.</p><div class="wp-block-image"><figure class="aligncenter"><img src="../../alka-web.com/wp/wp-content/uploads/2018/02/Feedier_%e2%80%b9_TEST_%e2%80%94_WordPress.html" alt="" class="wp-image-612"/></figure></div><p>Good enough, let&#8217;s save our data!</p><p>As mentioned before, we will save our data using AJAX. Therefore, we need to register a new JavaScript file and exchange data using the <a href="https://codex.wordpress.org/Function_Reference/wp_localize_script" target="_blank" rel="noopener">wp_localize_script()</a> function:</p><pre class="wp-block-preformatted">/**
+ * The security nonce
+ *
+ * @var string
+ */
+private $_nonce = 'feedier_admin';
+/**
+ * Adds Admin Scripts for the Ajax call
+ */
+public function addAdminScripts()
+{
+      wp_enqueue_script('feedier-admin', FEEDIER_URL. '/assets/js/admin.js', array(), 1.0);
+      $admin_options = array(
+	 'ajax_url' =&gt; admin_url( 'admin-ajax.php' ),
+	 '_nonce'   =&gt; wp_create_nonce( $this-&gt;_nonce ),
+      );
+      wp_localize_script('feedier-admin', 'feedier_exchanger', $admin_options);
+}</pre><p>We also need to add a new file<strong> /assets/js/admin.js</strong>. That will simply make an Ajax call, WordPress will automatically route correctly the request to the right method (already done in the constructor). You can read more about how WordPress smartly handles AJAX requests <a href="https://codex.wordpress.org/AJAX_in_Plugins" target="_blank" rel="noopener">here</a>.</p><pre class="wp-block-preformatted">/**
+ * Feedier plugin Saving process
+ */
+jQuery( document ).ready( function () {
+    jQuery( document ).on( 'submit', '#feedier-admin-form', function ( e ) {
+        e.preventDefault();
+        // We inject some extra fields required for the security
+        jQuery(this).append('&lt;input type="hidden" name="action" value="store_admin_data" /&gt;');
+        jQuery(this).append('&lt;input type="hidden" name="security" value="'+ feedier_exchanger._nonce +'" /&gt;');
+        // We make our call
+        jQuery.ajax( {
+            url: feedier_exchanger.ajax_url,
+            type: 'post',
+            data: jQuery(this).serialize(),
+            success: function ( response ) {
+                alert(response);
+            }
+        } );
+    } );
+} );</pre><p>At this very moment, we can click the save button and the above script will make an HTTP POST request to WordPress.</p><p>We also append an action parameter containing: <strong>store_admin_data</strong>.</p><p>Which we declared at the beginning at this part in the constructor:</p><pre class="wp-block-preformatted">add_action( 'wp_ajax_store_admin_data', array( $this, 'storeAdminData' ) );</pre><p>The method <strong>storeAdminData</strong> will receive the POST request and save the values we need in our WordPress option.</p><pre class="wp-block-preformatted">/**
+ * Callback for the Ajax request
+ *
+ * Updates the options data
+ *
+ * @return void
+ */
+public function storeAdminData()
+{
+    if (wp_verify_nonce($_POST['security'], $this-&gt;_nonce ) === false)
+	die('Invalid Request!');
+    $data = $this-&gt;getData();
+    foreach ($_POST as $field=&gt;$value) {
+        if (substr($field, 0, 8) !== "feedier_" || empty($value))
+	   continue;
+        // We remove the feedier_ prefix to clean things up
+	$field = substr($field, 8);
+        $data[$field] = $value;
+    }
+    update_option($this-&gt;option_name, $data);
+    echo __('Saved!', 'feedier');
+    die();
+}</pre><p>A few notes on the above method:</p><ul><li>We use a &#8220;WordPress nonce&#8221; to handle the security and make sure this is coming from the website and not a hacker faking the request.</li><li>We identify the fields we need to save using a &#8220;feedier_&#8221; prefix. Once received, we loop through all the $_POST data and only save those fields. We also remove the prefix before saving every field.</li></ul><p>That&#8217;s it for the saving process, when we click the save process we can see a POST request and our data is being saved on the database within the <strong>wp_options</strong> table.</p><div class="wp-block-image"><figure class="aligncenter"><img src="../../alka-web.com/wp/wp-content/uploads/2018/02/Feedier_%e2%80%b9_TEST_%e2%80%94_WordPress-1.html" alt="" class="wp-image-615"/></figure></div><p>Perfect, we are done with the admin page.</p><h2>Step 4: Insert The Dynamic Code Automatically Into Our Pages</h2><p>Now that we have our options saved, we can create a dynamic widget that will depend on the options set by the user through our admin page.</p><p>We already now what the web app expect from us.</p><p>Something like:</p><pre class="wp-block-preformatted">&lt;div class="feedier-widget" data-type="engager" data-position="right" data-carrier-id="x" data-key="xxxxxxxxxxxxxxxxx"&gt;&lt;/div&gt;
+&lt;!-- Include this line only one time, also if you have multiple widgets on the current page --&gt;
+&lt;script src="https://feedier.com/js/widgets/widgets.min.js" type="text/javascript" async&gt;&lt;/script&gt;</pre><p>Thus, the first thing we want to do is to create a new method to our plugin that will print this code depending on the variables set by the user. While using the architecture we already set up in the last part:</p><pre class="wp-block-preformatted">/**
+ * Add the web app code to the page's footer
+ *
+ * This contains the widget markup used by the web app and the widget API call on the frontend
+ * We use the options saved from the admin page
+ *
+ * @return void
+ */
+public function addFooterCode()
+{
+   $data = $this-&gt;getData();
+   // Only if the survey id is selected and saved
+   if(empty($data) || !isset($data['widget_carrier_id']))
+      return;
+   ?&gt;
+   &lt;div class="feedier-widget"
+             data-type="engager"
+             data-position="&lt;?php echo (isset($data['widget_position'])) ? $data['widget_position'] : 'left'; ?&gt;"
+             data-display-probability="&lt;?php echo (isset($data['widget_display_probability'])) ? $data['widget_display_probability'] : '100'; ?&gt;"
+             data-shake="&lt;?php echo (isset($data['widget_shake'])) ? $data['widget_shake'] : 'false'; ?&gt;"
+             data-carrier-id="&lt;?php echo (isset($data['widget_carrier_id'])) ? $data['widget_carrier_id'] : '0'; ?&gt;"
+             data-key="&lt;?php echo (isset($data['public_key'])) ? $data['public_key'] : '0'; ?&gt;"&gt;&lt;/div&gt;
+   &lt;script src="https://feedier.com/js/widgets/widgets.min.js" type="text/javascript" async&gt;&lt;/script&gt;
+   &lt;?php
+}</pre><p>Now, we just need to call this function on every page load to add it at the bottom of the page. To do this, we&#8217;ll hook our method to the <strong>wp_footer</strong> action.</p><p>By registering a new action into our class&#8217; constructor:</p><pre class="wp-block-preformatted">/**
+ * Feedier constructor.
+ *
+ * The main plugin actions registered for WordPress
+ */
+public function __construct()
+{
+    add_action('wp_footer', array( $this, 'addFooterCode'));
+    ... what we had before ...
+}</pre><p>That&#8217;s it!</p><p>Any question, feedback, idea? Let me know in the comment!</p><p>You can find a working result of this tutorial on <a href="https://github.com/2Fwebd/feedier-wordpress-plugin" target="_blank" rel="noopener">this Github repository</a>.</p><p>Note that this is the first version of the plugin, many things can be improved.</p><p>Open to suggestions and improvements.</p><hr><div class="row wofland_blog_taxanomy_single"><div class="col-md-8 col-sm-12 col-9"><div class="wofland_blog_tags wofland_blog_tags_single">
+<span><i class="fa fa-tags"></i> Tags:</span></div></div><div class="col-md-4 col-sm-12 col-3"><ul class="wofland_blog_social"><li><a href="#"><i class="fa fa-facebook-f"></i></a></li><li><a href="#"><i class="fa fa-twitter"></i></a></li><li><a href="#"><i class="fa fa-instagram"></i></a></li><li><a href="#"><i class="fa fa-pinterest-p"></i></a></li></ul></div></div><div class="row"><div class="wofland_author_details"><div class="col-md-2">
+<a href="../author/woadmin/index.html" class="wofland_author_profile_pic"><img alt='' src='https://secure.gravatar.com/avatar/ed15d1fe1462ae0b72a445bce683cb13?s=96&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ed15d1fe1462ae0b72a445bce683cb13?s=192&#038;d=mm&#038;r=g 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/></a></div><div class="col-md-10">
+<a href="../author/woadmin/index.html"><h4>About Admin : <span class="author-name">woadmin</span><span class="author-more">more</span></h4></a><p></p></div></div></div></div></div></div><div class="col-md-1 col-sm-12"></div></div></div><footer id="footer" class="footer-2 center">
+<span class="love">Made with <i class="fa-heart fa"></i> by</span>
+<a href="https://xtendify.com/" target="_blank">
+<img src="../wp-content/themes/woffice-landing/assets/images/xtendify_logo.png" alt="Xtendify Logo">
+</a><div class="container"><div class="footer-border"></div><div class="row"><div class="col-md-6 margin-20 text-left"><ul id="menu-footer" class="menu"><li id="menu-item-188" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-188"><a href="https://alkaweb.atlassian.net/wiki/spaces/WOF/overview">Documentation</a></li><li id="menu-item-189" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-189"><a target="_blank" rel="noopener" href="https://hub.woffice.io/woffice/updater">Updater</a></li><li id="menu-item-190" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-190"><a href="https://hub.woffice.io/woffice/changelog">Changelog</a></li><li id="menu-item-246" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-246"><a href="../support/index.html">Support</a></li><li id="menu-item-16083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-16083"><a href="../privacy-policy/index.html">Privacy policy</a></li></ul></div><div class="col-md-6 margin-20 text-right ">
+<span class="copyright">
+<i class="fa fa-copyright"></i> 2021, xtendify
+</span></div></div></div></footer></div></div> <script type="application/ld+json">{   "@context": "http://schema.org/", "@type": "WebApplication",
+                "name": "Woffice", "applicationCategory": "http://schema.org/BusinessApplication",
+                "image": ["https: //woffice.io/landing/wp-content/uploads/2015/10/logo.png"],
+                "description": "Woffice is the best intranet WordPress theme. Woffice is a Features Rich, Multipurpose theme designed to build an intranet / extranet with WordPress.",
+                "screenshot": ["https: //woffice.io/landing/wp-content/themes/woffice-landing/assets/images/screenshots/top.jpg"],
+                "releaseNotes": "http: //hub.alkalab.com/woffice/changelog", "operatingSystem": ["Windows", "macOS", "Linux", "Android", "iOS"],
+                "offers": { "@type": "Offer", "price": "75.00", "priceCurrency": "USD" },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.7",
+                    "reviewCount": "320"
+                }
+            }</script> <script type="application/ld+json">{   "@context": "http://schema.org/", "@type": "SoftwareApplication",
+                "name": "Woffice", "applicationCategory": "http://schema.org/WebApplication",
+                "image": ["https: //woffice.io/landing/wp-content/uploads/2015/10/logo.png"],
+                "description": "Woffice is the best intranet WordPress theme. Woffice is a Features Rich, Multipurpose theme designed to build an intranet / extranet with WordPress.",
+                "screenshot": ["https: //woffice.io/landing/wp-content/themes/woffice-landing/assets/images/screenshots/top.jpg"],
+                "releaseNotes": "http: //hub.alkalab.com/woffice/changelog", "operatingSystem": ["Windows", "macOS", "Linux", "Android", "iOS"],
+                "offers": { "@type": "Offer", "price": "75.00", "priceCurrency": "USD" },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.7",
+                    "reviewCount": "320"
+                }
+            }</script>  <script>(function(i,s,o,g,r,a,m){i.GoogleAnalyticsObject=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','../../www.google-analytics.com/analytics.js','ga');ga('create','UA-64410333-1','auto');ga('send','pageview');ga('require','ec')</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T429548" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script data-optimized="1" type='text/javascript' id='edd-ajax-js-extra'>var edd_scripts={"ajaxurl":"https:\/\/woffice.io\/wp-admin\/admin-ajax.php","position_in_cart":"","has_purchase_links":"","already_in_cart_message":"You have already added this item to your cart","empty_cart_message":"Your cart is empty","loading":"Loading","select_option":"Please select an option","is_checkout":"0","default_gateway":"stripe","redirect_to_checkout":"0","checkout_page":"https:\/\/woffice.io\/checkout\/","permalinks":"1","quantities_enabled":"","taxes_enabled":"1"}</script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/4c4ea9fafff09dddcf4fe432df36461bfe8c.js?ver=6461b' id='edd-ajax-js'></script> <script data-optimized="1" type='text/javascript' id='jck-sfr-main-js-extra'>var jck_sfr_vars={"nonce":"670a4c6295","ajax_url":"\/wp-admin\/admin-ajax.php","paged":"1","il8n":{"vote":"Vote","voting":"Voting","voted":"Voted"}};var jck_sfr_vars={"nonce":"670a4c6295","attachment_nonce":"b4294cf216","ajax_url":"\/wp-admin\/admin-ajax.php","allow_attachments":"0","attachments_max_filesize":"2","paged":"1","il8n":{"vote":"Vote","voting":"Voting","voted":"Voted"}}</script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/d69299eae956a043355bb226fddd5c82b373.js?ver=d5c82' id='jck-sfr-main-js'></script> <script data-optimized="1" type='text/javascript' id='groundhogg-frontend-js-extra'>var Groundhogg={"base_url":"https:\/\/woffice.io","routes":{"tracking":"https:\/\/woffice.io\/wp-json\/gh\/v4\/tracking","forms":"https:\/\/woffice.io\/wp-json\/gh\/v4\/forms","ajax":"https:\/\/woffice.io\/wp-admin\/admin-ajax.php"},"nonces":{"_wpnonce":"010d410d1d","_wprest":"010d410d1d","_ghnonce":"4cdf410753"},"cookies":{"tracking":"groundhogg-tracking","lead_source":"groundhogg-lead-source","form_impressions":"groundhogg-form-impressions","page_visits":"groundhogg-page-visits"},"settings":{"consent_cookie_name":"viewed_cookie_policy","consent_cookie_value":"yes"},"unnecessary_cookies_disabled":"","has_accepted_cookies":"1","ajaxurl":"https:\/\/woffice.io\/wp-admin\/admin-ajax.php","_wpnonce":"010d410d1d","_ghnonce":"4cdf410753"}</script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/1539fd0f55809dd3f89e1c4883fa6768b6b7.js?ver=a6768' id='groundhogg-frontend-js'></script> <script data-optimized="1" type='text/javascript' id='woffice-theme-script-js-extra'>var LANDING={"features":[{"name":"Project manager extension","description":"Including privacy support, file manager, to-do, comments, notifications...","new":0,"featured":1,"categories":["projects","extensions"]},{"name":"Live to-do manager","description":"Create to-do list for any project: organize, assign, complete and plan.","new":1,"featured":0,"categories":["projects"]},{"name":"File manager","description":"2 bundled file manager plugins are included in Woffice. Working with projects.","new":0,"featured":0,"categories":["projects","file-manager"]},{"name":"Project progress tracking","description":"Track project's progress by time or tasks done.","new":0,"featured":0,"categories":["projects"]},{"name":"Extended comments","description":"Coming out of the box with a robust comments system. Used in projects, wikis...","new":0,"featured":0,"categories":["projects","blog","wiki"]},{"name":"Project access control","description":"Assign members to specific projects or a whole BuddyPress group.","new":0,"featured":0,"categories":["projects","security"]},{"name":"Project group sync","description":"Let your BuddyPress groups have their own project","new":1,"featured":0,"categories":["projects","community"]},{"name":"Frontend edit","description":"Edit directly from the front end, no backend access needed.","new":0,"featured":0,"categories":["frontend","projects","wiki","blog","directory","calendar"]},{"name":"Frontend creation","description":"Create directly from the front end, no backend access needed.","new":0,"featured":1,"categories":["frontend","projects","wiki","blog","directory","calendar"]},{"name":"Frontend security","description":"Choose who can create \/ edit and what is the post's status once sent.","new":0,"featured":0,"categories":["frontend","projects","wiki","blog","directory","calendar"]},{"name":"Extended categories","description":"Organize your content within categories and sub-categories.","new":0,"featured":0,"categories":["projects","wiki","blog","directory","calendar"]},{"name":"Extended search","description":"Search through your content and members using advanced queries and forms.","new":0,"featured":0,"categories":["projects","wiki","blog","directory","calendar","community"]},{"name":"Multi language ready","description":"Woffice can be translated and used in any language.","new":0,"featured":1,"categories":["multilanguage"]},{"name":"WPML Support","description":"Use your site in several languages at the same time.","new":0,"featured":0,"categories":["multilanguage"]},{"name":"RTL support","description":"You can use Woffice in right-to-left mode. All the layout will adapt.","new":1,"featured":0,"categories":["multilanguage"]},{"name":"Already translated for you","description":"Ready to use in French, Portuguese, Russian, German, Spanish, Dutch....","new":0,"featured":0,"categories":["multilanguage"]},{"name":"WooCommerce ecommerce","description":"Build an online shop with WooCommerce and Woffice. Custom cart, design...","new":0,"featured":0,"categories":["woocommerce"]},{"name":"Directory extension","description":"Build a completely customizable directory with custom post types & fields.","new":0,"featured":1,"categories":["directory","extensions"]},{"name":"Unlimited fields and icons","description":"Use as many fields and icons as you wish for the directory. Choice is yours.","new":0,"featured":1,"categories":["directory"]},{"name":"Updated and Maintained","description":"We patch bugs and add new features about 2 or 3 times a month so you get the best.","new":0,"featured":1,"categories":[]},{"name":"Auto updater","description":"Woffice updates itself, no struggle just click the \"update\" button.","new":0,"featured":0,"categories":[]},{"name":"Online changelog","description":"Access Woffice changelog online to see what is changing and what we improve from anywhere.","new":0,"featured":0,"categories":[]},{"name":"Online documentation","description":"Captioned and complete doc with videos is available from anywhere & any device.","new":0,"featured":0,"categories":[]},{"name":"Top notch support","description":"7\/7 we are here to help you and help you thrive in your business.","new":0,"featured":0,"categories":[]},{"name":"Online updater","description":"Update Woffice from our portal at any time and access all the published versions. Backup plan.","new":0,"featured":0,"categories":[]},{"name":"Active directory support","description":"Let your users automatically login with their Active directory account on WordPress and Woffice.","new":0,"featured":1,"categories":[]},{"name":"Revolution Slider included","description":"Create Awesome sliders on all your pages and save $25 by buying Woffice.","new":0,"featured":1,"categories":[]},{"name":"Learndash support","description":"Create Awesome courses and classes with the most powerful e-learning plugin.","new":0,"featured":1,"categories":["courses","community"]},{"name":"Paid Membership Pro support","description":"Get money with subscription plans from your users and extended roles.","new":0,"featured":0,"categories":["community"]},{"name":"Role creation and edit","description":"Create and manage user role to control access across your site and content.","new":0,"featured":1,"categories":["security"]},{"name":"Instant search","description":"Real time live search through your website using Ajax.","new":0,"featured":0,"categories":[]},{"name":"Live notifications","description":"Real time live notifications for all your community.","new":1,"featured":0,"categories":["community"]},{"name":"Slack integration","description":"Receive notifications from your Intranet right into your Slack channels.","new":1,"featured":1,"categories":["community"]},{"name":"Powered by Unyson framework","description":"Trusted by 80k sites and with a complete developer documentation.","new":0,"featured":0,"categories":[]},{"name":"Built with HTML5, CSS3, Vue.js","description":"Powered by the most recent web technologies","new":0,"featured":0,"categories":[]},{"name":"Clean & commented code","description":"All the Woffice code is commented, ready to be changed and customized.","new":0,"featured":0,"categories":[]},{"name":"Submenu & Megamenu","description":"Create extensive menus with icons and several layouts.","new":0,"featured":0,"categories":[]},{"name":"Vertical or Horizontal menu","description":"Choose where you menu is displayed, customize position, icons, colors...","new":0,"featured":0,"categories":[]},{"name":"Extra footer","description":"Create an extended layout with an extra footer to display up to 4 widget rows.","new":0,"featured":0,"categories":[]},{"name":"Gantt graph","description":"Display your project's time line in a brand new way.","new":0,"featured":0,"categories":[]},{"name":"BigBlueButton support","description":"Web conference support using the famous BBB","new":0,"featured":0,"categories":[]},{"name":"Powerful breadcrumb","description":"Use the breadcrumb extension to help your users browse your site.","new":0,"featured":0,"categories":["extensions","pages"]},{"name":"Mutlsite","description":"Woffice supports multisites setup with also some specific articles.","new":0,"featured":0,"categories":[]},{"name":"Form builder","description":"Use Contact Form 7 or Gravity forms to build any kind of form.","new":1,"featured":0,"categories":["frontend","dashboard","pages"]},{"name":"Page options","description":"Extended options for each page are available.","new":0,"featured":0,"categories":["pages"]},{"name":"Drag & Drop page builder","description":"Build any kind of page with a drag and drop page builder and 20+ elements..","new":0,"featured":1,"categories":["pages"]},{"name":"Graphics","description":"Pick up in 8 graphic types using Visualize to display any data.","new":0,"featured":0,"categories":["dashboard","pages"]},{"name":"BBpress forums","description":"Create complete forums for your intranet with threads, categories, sub-forums...","new":0,"featured":0,"categories":[]},{"name":"Custom login page","description":"Fully customizable login page to suits your business.","new":0,"featured":1,"categories":["security"]},{"name":"Complete privacy","description":"Option to privatize the whole site or some pages only.","new":0,"featured":0,"categories":["security"]},{"name":"Register form","description":"Complete register form with custom fields, captcha and domain check.","new":0,"featured":0,"categories":["security"]},{"name":"Facebook login","description":"Login and register your users with their Facebook account, one click.","new":0,"featured":0,"categories":["security"]},{"name":"Google login","description":"Let your users login with their own Google account.","new":1,"featured":0,"categories":["security"]},{"name":"Custom Captcha","description":"Create a custom captcha that only your members know.","new":0,"featured":0,"categories":["security"]},{"name":"Private Api and feed","description":"Option to make your RSS feed and API (since WP 4.7) private.","new":1,"featured":0,"categories":["security"]},{"name":"Widgetized Dashboard","description":"Choose any WordPress widget for your dashboard, as many and as different as you wish.","new":0,"featured":0,"categories":["dashboard"]},{"name":"Drag & Drop widgets","description":"Let your users order their dashboard as they wish using drag and drop.","new":0,"featured":0,"categories":["dashboard"]},{"name":"Custom widgets","description":"Woffice brings more than 15 custom widgets: polls, chat, fun facts...","new":0,"featured":0,"categories":[]},{"name":"Live chat","description":"Beautiful chat with channels to create complete chat rooms using Wise Chat.","new":0,"featured":0,"categories":[]},{"name":"Sidebar Manager","description":"Manage your sidebars and their positions, roles access, content.","new":0,"featured":0,"categories":["extensions"]},{"name":"Time Tracking","description":"Let your users track their work and manage their shifts using a nice widget.","new":1,"featured":1,"categories":["extensions"]},{"name":"Members directory","description":"Complete directory with several layouts available to display all your members.","new":0,"featured":0,"categories":["community"]},{"name":"Groups directory","description":"Complete directory to display all your groups.","new":0,"featured":0,"categories":["community"]},{"name":"Activity stream","description":"One place for all the activity on your network: favorites, comments, medias...","new":1,"featured":0,"categories":["community"]},{"name":"Friendship","description":"Optionally, you can let your members become friend and access specific content, messages. ","new":0,"featured":0,"categories":["community"]},{"name":"Private messaging","description":"Your users can send private messages to their friend to talk about any subject they wish.","new":0,"featured":0,"categories":["community"]},{"name":"Members map","description":"One map to show all your members around the world and visualize your community.","new":0,"featured":1,"categories":["community"]},{"name":"Cover images","description":"For both groups and profiles, they can upload a cover image with their avatar.","new":1,"featured":0,"categories":["community"]},{"name":"Demo content","description":"One click demo import and install to get started (as well as .xml).","new":1,"featured":1,"categories":[]},{"name":"Theme options","description":"Complete theme options with over 200 options to change your intranet, extranet.","new":0,"featured":0,"categories":["customization"]},{"name":"Icons","description":"More than 700 icons available for your menus, sidebars and content.","new":0,"featured":0,"categories":["customization"]},{"name":"Google web fonts","description":"More than 700 fonts available for your site.","new":0,"featured":1,"categories":["customization"]},{"name":"Logo & Favicon","description":"Manage your logo, favicons and app bookmarks throughout all your site.","new":0,"featured":0,"categories":["customization","responsive"]},{"name":"Unlimited styles","description":"Use color pickers to build your own style and feel.","new":0,"featured":0,"categories":["customization","responsive"]},{"name":"Horizontal menu","description":"Choose between an horizontal or vertical menu layout, choice is yours.","new":0,"featured":0,"categories":["customization"]},{"name":"Adaptable workflow","description":"Your site's layout can be different for each user using browser cookies.","new":0,"featured":0,"categories":["customization"]},{"name":"Wiki-knowledge","description":"Complete wiki articles to organize your knowledge base in your organization.","new":0,"featured":1,"categories":["extensions","wiki"]},{"name":"Like button","description":"Like system for your blog and wiki articles so you know what is useful or not.","new":1,"featured":0,"categories":["wiki","blog"]},{"name":"Articles hierarchy","description":"Organize your wiki articles as a tree, with folders and categories.","new":0,"featured":0,"categories":["wiki"]},{"name":"100% Responsive","description":"Woffice works on any mobile, tablet or device. It'll adjust automatically.","new":0,"featured":0,"categories":["responsive"]},{"name":"HD and retina ready","description":"Using the latest technologies and specific assets to suit any screen.","new":0,"featured":0,"categories":["responsive"]},{"name":"Web-app capable","description":"Whether it is on Android or Ios, Woffice will feels like a native application.","new":0,"featured":1,"categories":["responsive"]},{"name":"Cross browsers support","description":"Woffice is working on any moder browser no matter the OS used.","new":0,"featured":0,"categories":["responsive"]},{"name":"Includes Eventon","description":"Woffice bundle Eventon and the full-call addon (save $56)","new":0,"featured":0,"categories":["calendar"]},{"name":"Includes Dp Pro Event","description":"Woffice bundle Dp Pro Event calendar for free (save $28)","new":1,"featured":0,"categories":["calendar"]},{"name":"Full month calendar","description":"Plan your events with a step ahead on what's coming.","new":0,"featured":0,"categories":["calendar"]},{"name":"Social sharing","description":"Share your content on any social network.","new":0,"featured":0,"categories":["calendar","blog"]},{"name":"Three file managers","description":"Use either File Away, BuddyDrive or Multiverso to manage your files on your site.","new":0,"featured":0,"categories":["file-manager"]},{"name":"Includes Multiverso","description":"Second file-manager plugin available (save $28).","new":0,"featured":0,"categories":["file-manager"]},{"name":"FTP browsing","description":"Manage files directly in your FTP from WordPress' frontend.","new":0,"featured":0,"categories":["file-manager"]},{"name":"Permission management","description":"Decide who can access any folder or file with advanced permissions.","new":0,"featured":0,"categories":["file-manager","security"]},{"name":"Built-in shortcodes","description":"Ready to use shortcodes with options to build any content you need using your site's data.","new":0,"featured":0,"categories":["file-manager","projects","wiki","directory"]}]}</script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/2cd500a05f269bcf012b6ff93c61e145bf72.js?ver=1e145' id='woffice-theme-script-js'></script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/e483f9b4e6b533d193b3478532024f4df436.js?ver=24f4d' id='jquery-mixitup-min-js'></script> <script data-optimized="1" type='text/javascript' src='../wp-content/litespeed/js/a0fe8444662579b3d88f7158db0368da3326.js?ver=368da' id='wp-embed-js'></script> <script data-optimized="1" type="text/javascript">var slicewp_ajaxurl="../wp-admin/admin-ajax.html";var slicewp={cookie_duration:"30",affiliate_credit:"last",affiliate_keyword:"aff"}</script> <div class="feedier-widget" data-type="engager" data-shake="true" data-position="right" data-carrier-id="2" data-key="abEalgK6BBpshuduCZ8OD0EiSAg9YTeF"></div> <script>(function($,window,document,undefined){$(document).ready(function(){updateURLs()});function updateURLs(){var marketplace='themeforest';var username='alkaweb';var cookieName='webcraft_adwords';var urlAttachment='?ref='+username;if(QueryString.gclid){var today=new Date();var expires=new Date(today.getTime()+30*24*60*60*1000);document.cookie=cookieName+'='+QueryString.gclid+'; expires='+expires}
+var c=getCookie(cookieName);if(c){urlAttachment+='&gclid='+c}
+$('a').each(function(){if($(this).attr('href')&&$(this).attr('href').search(marketplace)!=-1){$(this).attr('href',$(this).attr('href')+urlAttachment)}})}
+var QueryString=function(){var query_string={};var query=window.location.search.substring(1);var vars=query.split("&");for(var i=0;i<vars.length;i++){var pair=vars[i].split("=");if(typeof query_string[pair[0]]==="undefined"){query_string[pair[0]]=decodeURIComponent(pair[1])}else if(typeof query_string[pair[0]]==="string"){var arr=[query_string[pair[0]],decodeURIComponent(pair[1])];query_string[pair[0]]=arr}else{query_string[pair[0]].push(decodeURIComponent(pair[1]))}}
+return query_string}();function getCookie(c_name){var i,x,y,ARRcookies=document.cookie.split(";");for(i=0;i<ARRcookies.length;i++){x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);x=x.replace(/^\s+|\s+$/g,"");if(x==c_name){return unescape(y)}}}})(jQuery,window,document)</script> <script data-optimized="1" type="text/javascript"
+		        src="../wp-content/litespeed/js/068ecf25f67e6345c27d7ce6b26b3016ad92.js?ver=b3016"></script> </body>
+<!-- Mirrored from woffice.io/tutorial-wordpress-plugin-web-app/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Dec 2021 14:02:18 GMT -->
+</html>
+<!-- Page optimized by LiteSpeed Cache @2021-12-14 13:57:06 -->
+<!-- Page generated by LiteSpeed Cache 4.4.5 on 2021-12-14 13:57:06 -->
